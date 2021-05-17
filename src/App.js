@@ -10,7 +10,7 @@ function App() {
           JEbote isus <code>src/App.js</code> and save to reload.
         </p>
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React Agata is trying the thing
+          Learn React Agata is trying the thing New push here
         </a>
       </header>
     </div>
