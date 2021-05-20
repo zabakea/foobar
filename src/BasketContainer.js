@@ -1,6 +1,6 @@
 export default function BasketContainer() {
     return (
-        <div className="BasketContainer">
+        <div className="Basket_Container">
             <p>Add Beers</p>
         </div>
     )

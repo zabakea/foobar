@@ -24,7 +24,7 @@ export default function Form() {
                 <input type="text" id="name" title="cvc"></input>
             </div>
 
-            <button className="CardPay">pay</button>
+            <button className="Card_Pay">pay</button>
         </form>
 
     )

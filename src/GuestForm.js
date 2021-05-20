@@ -4,7 +4,7 @@ import MobilePay from "./MobilePay";
 
 export default function GuestForm() {
     return (
-        <div className="GuestForm">
+        <div className="Guest_Form">
             <Form />
             <p>Or</p>
             <MobilePay />

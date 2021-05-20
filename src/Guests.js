@@ -2,7 +2,7 @@ import GuestContainer from "./GuestContainer";
 
 export default function Guests() {
     return (
-        <div className="guests">
+        <div className="Guests">
 
             <GuestContainer />
             <GuestContainer />

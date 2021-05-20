@@ -3,7 +3,7 @@ import GuestTotalAmount from "./GuestTotalAmount"
 
 export default function BasketTotal() {
     return (
-        <div class="BasketTotal">
+        <div class="Basket_Total">
             <BasketGuestNumber />
             <GuestTotalAmount />
         </div>

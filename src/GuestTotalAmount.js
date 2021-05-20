@@ -1,5 +1,5 @@
 export default function BasketTotal() {
     return (
-        <p className="GuestTotalAmount">60,-</p>
+        <p className="Guest_Total_Amount">60,-</p>
     )
 }
