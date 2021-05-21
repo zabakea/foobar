@@ -3,7 +3,7 @@ export default function Form() {
     <form>
       <div className="Field">
         <label for="cardnumber">card number</label>
-        <input type="text" id="cardnumber" title="cardname" placeholder="1234 1234 1234 1234"></input>
+        <input type="text" id="cardnumber" title="cardname" minlength="16" maxlength="16" placeholder="1234 1234 1234 1234"></input>
       </div>
 
       <div className="Field">
@@ -13,13 +13,13 @@ export default function Form() {
 
       <div className="Field">
         <label for="expdate">exp date</label>
-        <input type="text" id="expmonth" title="expdate" placeholder="MM"></input>
-        <input type="text" id="expyear" title="expdate" placeholder="YYYY"></input>
+        <input type="text" id="expmonth" title="expdate" maxlength="2" placeholder="MM"></input>
+        <input type="text" id="expyear" title="expdate" maxlength="4" placeholder="YYYY"></input>
       </div>
 
       <div className="Field">
         <label for="cvc">cvc</label>
-        <input type="text" id="name" title="cvc" placeholder="123"></input>
+        <input type="text" id="name" title="cvc" minlength="3" maxlength="4" placeholder="123"></input>
       </div>
 
       <button className="Card_Pay">pay</button>
