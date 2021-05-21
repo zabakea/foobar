@@ -1,9 +1,11 @@
 .Guest_Form {
-  //   display: none;
-
   p {
     text-align: center;
   }
+}
+
+.Guest_Container:hover .Guest_Form {
+  height: auto;
 }
 
 .Field {
@@ -19,6 +21,20 @@ input {
   padding: 5px;
   color: $form-fill;
   font-family: $body-font;
+
+  &:focus {
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid $form-color;
+  }
+
+  &:not(:focus):not(:placeholder-shown):valid {
+    border: 1px solid $accent-color;
+  }
+
+  &:not(:focus):not(:placeholder-shown):invalid {
+    border-color: 1px solid $invalid-accent-color;
+  }
 }
 
 ::placeholder {
