@@ -1,0 +1,60 @@
+.Guests {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.Basket_Total {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.Order {
+  margin: auto;
+  width: 20%;
+  text-align: center;
+}
+
+.Main_Content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+.Beer_Preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  width: 25em;
+  height: 70vh;
+}
+
+.Beer_Desc {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.Beer_Label {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.Beer_List {
+  text-align: left;
+}
+
+.Extra_Info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}

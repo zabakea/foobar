@@ -1,5 +1,3 @@
 export default function ButtonPlus() {
-    return (
-        <button className="Plus"></button>
-    )
+  return <button className="Plus">+</button>;
 }

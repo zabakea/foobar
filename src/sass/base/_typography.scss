@@ -1,2 +1,18 @@
-$header-font: Helvetica, sans-serif;
-$body-font: Helvetica, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "../themes/theme";
+
+@font-face {
+  font-family: "Phosphate";
+  src: url("../assets/Phosphate.ttf") format("ttf"), url("../assets/Phosphate-Solid.woff2") format("woff2"), url("../assets/Phosphate-Solid.woff") format("woff"), url("../assets/Phosphate-Solid.svg#Phosphate-Solid") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+$header-font: "Phosphate", sans-serif;
+$body-font: "Space Mono", monospace;
+
+h1 {
+  font-family: $header-font;
+  color: $text-color;
+}

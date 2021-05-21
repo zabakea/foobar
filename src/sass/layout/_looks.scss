@@ -1,0 +1,29 @@
+@import "../themes/theme";
+@import "../base/typography";
+
+body {
+  background-color: $bg-color;
+  background-image: url("../assets/bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: $form-color;
+  font-family: $body-font;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: $header-font;
+  color: $text-color;
+  margin: auto;
+}
+
+ul {
+  font-family: $header-font;
+  color: $header-fill;
+  font-size: 2em;
+  list-style-type: none;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1.5px $header-color;
+  letter-spacing: 3px;
+}
