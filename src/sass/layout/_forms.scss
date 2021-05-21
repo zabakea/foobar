@@ -1,3 +1,27 @@
 .Guest_Form {
-  display: none;
+  //   display: none;
+
+  p {
+    text-align: center;
+  }
+}
+
+.Field {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid $form-color;
+  background-color: transparent;
+  margin: 5px;
+  padding: 5px;
+  color: $form-fill;
+  font-family: $body-font;
+}
+
+::placeholder {
+  color: $form-color;
+  opacity: 50%;
 }

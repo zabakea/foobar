@@ -27,3 +27,28 @@ ul {
   -webkit-text-stroke: 1.5px $header-color;
   letter-spacing: 3px;
 }
+
+.Guest_Container {
+  flex-grow: 1;
+  transform: translate(0, -50%);
+  padding: 0.5em 1em;
+  &:hover {
+    animation: slidedown 1s forwards;
+  }
+}
+
+//showing up full into about the guest table
+
+@keyframes slidedown {
+  0% {
+    translate: (0, -50%);
+    // border: 0px solid $header-color;
+  }
+  100% {
+    transform: translate(0, -10%);
+    background-color: $header-fill;
+    // border: 1px solid $header-color;
+    border-radius: 2px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+  }
+}
