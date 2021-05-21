@@ -41,7 +41,7 @@
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
+/* Do an vertical flip when you move the mouse over the flip box container */
 .Order:hover .Inner_Order {
   transform: rotateX(180deg);
 }
@@ -59,4 +59,21 @@
 /* Style the back side */
 .Queue {
   transform: rotateX(180deg);
+}
+
+//FORM BUTTONS
+
+.Card_Pay,
+.MobilePay {
+  width: 100%;
+  height: 2em;
+  margin-top: 1em;
+  border-radius: 2px;
+  border: none;
+  font-family: $body-font;
+}
+
+.MobilePay {
+  background-color: #5a78fe;
+  color: white;
 }
