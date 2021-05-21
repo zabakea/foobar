@@ -1,23 +1,9 @@
-import BeerListItem from "./BeerListItem"
+export default function BeerListUL(props) {
+    const beername = Object.keys(props).map(key => (<li key={props[key].id}>{props[key].beer}</li>));
 
-
-
-
-export default function BeerListUL() {
     return (
         <ul>
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-            <BeerListItem />
-
+            {beername}
         </ul>
     )
 }
