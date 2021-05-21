@@ -1,4 +1,5 @@
 .Guests {
+  position: sticky;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -20,6 +21,7 @@
 }
 
 .Main_Content {
+  position: fixed;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
