@@ -1,12 +1,9 @@
 import BeerListUL from "./BeerListUL";
 
-export default function BeerList({ data }) {
-
-    return (
-        <div className="Beer_List">
-            <BeerListUL data={data} />
-        </div>
-
-    )
+export default function BeerList({ beers, clickHandler }) {
+  return (
+    <div className="Beer_List">
+      <BeerListUL beers={beers} clickHandler={clickHandler} />
+    </div>
+  );
 }
-
