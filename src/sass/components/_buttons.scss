@@ -1,3 +1,5 @@
+@import "../themes/theme_dark";
+
 .Plus,
 .Minus,
 .PlaceOrderButton {
@@ -26,9 +28,12 @@
 //Flip animation
 
 .Order {
+  position: sticky;
+  bottom: 1px;
   background-color: transparent;
   height: 200px;
   perspective: 1000px;
+  z-index: 5;
 }
 
 /* This container is needed to position the front and back side */

@@ -33,19 +33,13 @@ input {
   }
 
   &:not(:focus):not(:placeholder-shown):invalid {
-    border-color: 1px solid $invalid-accent-color;
+    border: 1px solid $invalid-accent-color;
   }
 }
 
 ::placeholder {
   color: $form-color;
   opacity: 50%;
-}
-
-//Hiding default error messages
-
-.fv-plugins-message-container {
-  display: none;
 }
 
 //Styling error messages
@@ -67,4 +61,5 @@ input {
 #expmonth:not(:focus):not(:placeholder-shown):invalid ~ .Error_Month,
 #cvc:not(:focus):not(:placeholder-shown):invalid ~ .Error_CVC {
   display: inline;
+  border-color: 1px solid $invalid-accent-color;
 }

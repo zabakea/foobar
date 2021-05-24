@@ -4,11 +4,12 @@ import BeerList from "./BeerList";
 import Guests from "./Guests";
 import "./sass/main.scss";
 import { useEffect, useState } from "react";
+
 const initData = [];
 const initTypes = [];
 const initPrice = [];
 
-function App() {
+export default function App() {
   const [beers, setBeers] = useState(initData);
   const [types, setTypes] = useState(initTypes);
   const [prices, setPrices] = useState(initPrice);
@@ -66,5 +67,3 @@ function App() {
     </>
   );
 }
-
-export default App;
