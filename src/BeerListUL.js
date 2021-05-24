@@ -1,9 +1,13 @@
-export default function BeerListUL(props) {
-    const beername = Object.keys(props).map(key => (<li key={props[key].id}>{props[key].beer}</li>));
+const BeerListUL = ({ beers, clickHandler }) => {
+  return (
+    <ul>
+      {beers.map((beer, index) => (
+        <li key={beer.id} data-index={index} onClick={clickHandler}>
+          {beer.beer}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
-    return (
-        <ul>
-            {beername}
-        </ul>
-    )
-}
+export default BeerListUL;
