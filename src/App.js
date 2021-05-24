@@ -18,9 +18,10 @@ function App() {
   useEffect(() => {
     fetch("https://pivobar.herokuapp.com/")
       .then((res) => res.json())
-      .then(setData);
-  }, []
-  );
+      .then((beertypes) => {
+        beertypes.map(btype =>  return console.log(btype));
+      }, []);
+  });
 
   useEffect(() => {
     fetch("https://pivobar.herokuapp.com/beertypes")
@@ -50,7 +51,7 @@ function App() {
     <>
       <Guests />
       <div className="Main_Content">
-        <BeerList {...data.taps} />
+        <BeerList data={data.taps} />
         <BeerPreview />
       </div>
       <Order />

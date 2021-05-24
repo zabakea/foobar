@@ -1,10 +1,10 @@
 import BeerListUL from "./BeerListUL";
 
-export default function BeerList(props) {
+export default function BeerList({ data }) {
 
     return (
         <div className="Beer_List">
-            <BeerListUL {...props} />
+            <BeerListUL data={data} />
         </div>
 
     )
