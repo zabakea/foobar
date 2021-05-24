@@ -41,3 +41,30 @@ input {
   color: $form-color;
   opacity: 50%;
 }
+
+//Hiding default error messages
+
+.fv-plugins-message-container {
+  display: none;
+}
+
+//Styling error messages
+
+.Error_Cardnumber,
+.Error_Year,
+.Error_Month,
+.Error_CVC {
+  font-size: 0.8em;
+  color: $invalid-accent-color;
+  background-color: white;
+  display: none;
+}
+
+//Displaying error messages
+
+#cardnumber:not(:focus):not(:placeholder-shown):invalid ~ .Error_Cardnumber,
+#expyear:not(:focus):not(:placeholder-shown):invalid ~ .Error_Year,
+#expmonth:not(:focus):not(:placeholder-shown):invalid ~ .Error_Month,
+#cvc:not(:focus):not(:placeholder-shown):invalid ~ .Error_CVC {
+  display: inline;
+}

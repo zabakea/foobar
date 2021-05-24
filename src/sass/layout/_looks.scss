@@ -30,6 +30,7 @@ ul {
 
 .Guest_Container {
   flex-grow: 1;
+  flex-basis: 0;
   transform: translate(0, -81%);
   padding: 0.5em 1em;
   &:hover {
