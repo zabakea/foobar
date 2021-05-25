@@ -6,7 +6,7 @@ import "./sass/main.scss";
 import { useEffect, useState } from "react";
 import { render } from "@testing-library/react";
 
-export default function App() {
+function App() {
   const [beers, setBeers] = useState([]);
   const [focus, setFocus] = useState(0);
   const [detail, setDetail] = useState([]);
