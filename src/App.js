@@ -4,12 +4,14 @@ import BeerList from "./BeerList";
 import Guests from "./Guests";
 import "./sass/main.scss";
 import { useEffect, useState } from "react";
+import { render } from "@testing-library/react";
 
 export default function App() {
   const [beers, setBeers] = useState([]);
   const [focus, setFocus] = useState(0);
   const [detail, setDetail] = useState([]);
   const [prices, setPrices] = useState([]);
+  const [theme, themeToggle] = useState(true);
 
   useEffect(() => {
     fetch("https://pivobar.herokuapp.com/")
@@ -49,21 +51,9 @@ export default function App() {
   // console.log(types);
 
   //changing themes
-  var theme = true;
-  const root = document.documentElement;
-
-  function themeToggle() {
-    if (theme) {
-      theme = false;
-      root.style.setProperty("--header-color", "green");
-    } else {
-      theme = true;
-      root.style.setProperty("--header-color", "white");
-    }
-  }
 
   return (
-    <>
+    <div className={`${theme ? "Dark_Theme" : "Light_Theme"}`}>
       <Guests />
       <div className="Main_Content">
         <BeerList
@@ -90,7 +80,13 @@ export default function App() {
         <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} />
       </div>
       <Order />
-      <button onClick={themeToggle}>Theme toggle</button>
-    </>
+      <button
+        className={`Theme_Toggle ${theme ? "Theme_Toggle_Moon" : "Theme_Toggle_Sun"}`}
+        onClick={() => {
+          themeToggle(!theme);
+          console.log(theme);
+        }}
+      ></button>
+    </div>
   );
 }

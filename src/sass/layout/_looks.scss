@@ -1,35 +1,34 @@
-@import "../base/typography";
-@import "../themes/theme_dark";
+@import "../themes/theme";
 
 body {
-  background-color: $bg-color;
+  background-color: var(--bg-color);
   background-image: url("../assets/bg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: $form-color;
+  color: var(--form-color);
   font-family: $body-font;
   // overflow: hidden;
 }
 
 h1 {
   font-family: $header-font;
-  color: $text-color;
+  color: var(--text-color);
   margin: auto;
 }
 
 ul {
   font-family: $header-font;
-  color: $header-fill;
+  color: var(--header-fill);
   font-size: 2em;
   list-style-type: none;
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 1px $header-color;
+  -webkit-text-stroke: 1px var(--header-color);
   letter-spacing: 3px;
   li {
     cursor: pointer;
     &.focus {
-      color: $header-color;
+      color: var(--header-color);
     }
   }
 }
@@ -44,6 +43,7 @@ ul {
     animation: slidedown 1s forwards;
   }
   z-index: 5;
+  color: var(--form-color);
 }
 
 //showing up full into about the guest table
@@ -55,7 +55,7 @@ ul {
   }
   100% {
     transform: translate(0, -3%);
-    background-color: $header-fill;
+    background-color: var(--header-fill);
     backdrop-filter: blur(5px);
     // border: 1px solid $header-color;
     border-radius: 2px;

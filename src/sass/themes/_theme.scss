@@ -1,0 +1,55 @@
+:root {
+  //dark variables
+  --d-bg-color: #0d0d0d;
+  --d-header-color: #bb98ef;
+  --d-header-fill: rgba(187, 152, 239, 0.2);
+  --d-text-color: #fffbe4;
+  --d-form-color: #ffffff;
+  --d-form-fill: rgba(255, 255, 255, 0.7);
+  --d-accent-color: #85c37b;
+  --d-accent-fill: rgba(133, 195, 123, 0.2);
+  --d-invalid-accent-color: #ab2346;
+
+  //icons
+  --theme-icon-moon: url("../assets/moon.svg");
+  --theme-icon-sun: url("../assets/sun.svg");
+
+  //bright variables
+  --l-bg-color: #ffffff;
+  --l-header-color: #397a49;
+  --l-header-fill: rgba(187, 152, 239, 0.2);
+  --l-text-color: gold;
+  --l-form-color: white;
+  --l-form-fill: black;
+  --l-accent-color: green;
+  --l-accent-fill: aqua;
+  --l-invalid-accent-color: magenta;
+}
+
+.Dark_Theme {
+  --bg-color: var(--d-bg-color);
+  --header-color: var(--d-header-color);
+  --header-fill: var(--d-header-fill);
+  --text-color: var(--d-text-color);
+  --form-color: var(--d-form-color);
+  --form-fill: var(--d-form-fill);
+  --accent-color: var(--d-accent-color);
+  --accent-fill: var(--d-accent-fill);
+  --invalid-accent-color: var(--d-invalid-accent-color);
+  --theme-icon-moon: url("../assets/moon.svg");
+  --theme-icon-sun: url("../assets/sun.svg");
+}
+
+.Light_Theme {
+  --bg-color: var(--l-bg-color);
+  --header-color: var(--l-header-color);
+  --header-fill: var(--l-header-fill);
+  --text-color: var(--l-text-color);
+  --form-color: var(--l-form-color);
+  --form-fill: var(--l-form-fill);
+  --accent-color: var(--l-accent-color);
+  --accent-fill: var(--l-accent-fill);
+  --invalid-accent-color: var(--l-invalid-accent-color);
+  --theme-icon-moon: url("../assets/moon.svg");
+  --theme-icon-sun: url("../assets/sun.svg");
+}
