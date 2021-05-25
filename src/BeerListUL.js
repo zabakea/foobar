@@ -1,4 +1,4 @@
-const BeerListUL = ({ beers, clickHandler }) => {
+const BeerListUL = ({ beers, clickHandler, focus }) => {
   return (
     <ul>
       {beers.map((beer, index) => (

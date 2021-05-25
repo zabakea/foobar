@@ -10,6 +10,7 @@ const initPrice = [];
 
 function App() {
   const [beers, setBeers] = useState(initData);
+  const [focus, setFocus] = useState(0);
   const [types, setTypes] = useState(initTypes);
   const [prices, setPrices] = useState(initPrice);
 
@@ -17,15 +18,8 @@ function App() {
     fetch("https://pivobar.herokuapp.com/")
       .then((res) => res.json())
       .then((data) =>
-        setBeers(
-          data.taps.map((btype) => {
-            return {
-              ...btype,
-              focus: false,
-            };
-          })
-        )
-      );
+        setBeers(data.taps)
+      )
   }, []);
 
   useEffect(() => {
@@ -47,8 +41,8 @@ function App() {
       .then(setPrices);
   }, []);
 
-  // console.log(prices);
-  // console.log(types);
+  console.log(prices);
+  console.log(types);
 
   return (
     <>
@@ -57,8 +51,9 @@ function App() {
         <BeerList
           beers={beers}
           clickHandler={(e) => {
-            console.log(e.target.dataset.index);
+            setFocus(e.target.dataset.index)
           }}
+          focus={focus}
         />
         <BeerPreview />
       </div>

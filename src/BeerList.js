@@ -1,9 +1,10 @@
 import BeerListUL from "./BeerListUL";
 
-export default function BeerList({ beers, clickHandler }) {
-  return (
-    <div className="Beer_List">
-      <BeerListUL beers={beers} clickHandler={clickHandler} />
-    </div>
-  );
+export default function BeerList({ beers, clickHandler, focus }) {
+    console.log(focus);
+    return (
+        <div className="Beer_List">
+            <BeerListUL beers={beers} clickHandler={clickHandler} focus={focus} />
+        </div>
+    );
 }
