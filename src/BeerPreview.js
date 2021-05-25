@@ -1,12 +1,15 @@
 import ButtonPlus from "./ButtonPlus";
 import ButtonMinus from "./ButtonMinus";
 import elhefe from "./images/githop.png";
+// import { useState } from "react";
 
 const BeerPreview = ({ beers, prices, details, focus }) => {
-  let activeBeer = beers.filter((beer) => {
-    return beer.focus ? beer.id : null;
-  });
-  console.log(focus);
+  // console.log(beers, prices, details, focus);
+  const focusedBeer = beers[focus].beer;
+  const beerDetails = details.find((el) => el.name === focusedBeer);
+  // console.log(beers, prices, details, focus);
+  console.log(beerDetails);
+
   return (
     <div className="Beer_Preview">
       <div className="Beer_Label">

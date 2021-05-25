@@ -1,10 +1,10 @@
-const BeerListUL = ({ beers, clickHandler }) => {
-  // console.table(beers);
+const BeerListUL = ({ beers, clickHandler, focus }) => {
+  // console.log(focus);
   return (
     <ul>
-      {beers.map((beer) => {
+      {beers.map((beer, index) => {
         return (
-          <li key={beer.id} data-index={beer.id} onClick={clickHandler} className={beer.focus ? "focus" : ""}>
+          <li key={beer.id} className={index === focus ? "focus" : ""} onClick={clickHandler}>
             {beer.beer}
           </li>
         );

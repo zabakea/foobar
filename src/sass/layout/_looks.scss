@@ -28,6 +28,8 @@ ul {
   letter-spacing: 3px;
   li {
     cursor: pointer;
+    width: min-content;
+    white-space: nowrap;
     &.focus {
       color: $header-color;
     }
