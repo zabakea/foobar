@@ -4,7 +4,6 @@ import BeerList from "./BeerList";
 import Guests from "./Guests";
 import "./sass/main.scss";
 import { useEffect, useState } from "react";
-import { render } from "@testing-library/react";
 
 function App() {
   const [beers, setBeers] = useState([]);
@@ -17,7 +16,7 @@ function App() {
     fetch("https://pivobar.herokuapp.com/")
       .then((res) => res.json())
       .then((data) => {
-        //UNDERSTAND IT BEFORE AN EXAM ! ! !
+        //UNDERSTAND IT BEFORE AN EXAM ! !
         const noDoubles = data.taps.reduce((acc, current) => {
           const x = acc.find((item) => item.beer === current.beer);
           if (!x) {

@@ -5,10 +5,10 @@ import elhefe from "./images/githop.png";
 
 const BeerPreview = ({ beers, prices, details, focus }) => {
   // console.log(beers, prices, details, focus);
-  const focusedBeer = beers[focus].beer;
-  const beerDetails = details.find((el) => el.name === focusedBeer);
+  // const focusedBeer = beers[focus].beer;
+  // const beerDetails = details.find((el) => el.name === focusedBeer);
   // console.log(beers, prices, details, focus);
-  console.log(beerDetails);
+  // console.log(beerDetails);
 
   return (
     <div className="Beer_Preview">
