@@ -1,23 +1,20 @@
-import Order from "./Order";
+// import Order from "./Order";
 import BeerPreview from "./BeerPreview";
 import BeerList from "./BeerList";
-import Guests from "./Guests";
+// import Guests from "./Guests";
 import "./sass/main.scss";
 import { useEffect, useState } from "react";
 
-const initData = [];
-const initTypes = [];
-const initPrice = [];
-
-export default function App() {
-  const [beers, setBeers] = useState(initData);
-  const [types, setTypes] = useState(initTypes);
-  const [prices, setPrices] = useState(initPrice);
+function App() {
+  const [beers, setBeers] = useState([]);
+  const [focus, setFocus] = useState(0);
+  const [detail, setDetail] = useState([]);
+  const [prices, setPrices] = useState([]);
 
   useEffect(() => {
     fetch("https://pivobar.herokuapp.com/")
       .then((res) => res.json())
-      .then((data) =>
+      .then((data) => {
         setBeers(
           data.taps.map((btype) => {
             return {
@@ -25,14 +22,14 @@ export default function App() {
               focus: false,
             };
           })
-        )
-      );
+        );
+      });
   }, []);
 
   useEffect(() => {
     fetch("https://pivobar.herokuapp.com/beertypes")
-      .then((resType) => resType.json())
-      .then(setTypes);
+      .then((res) => res.json())
+      .then(setDetail);
   }, []);
 
   useEffect(() => {
@@ -67,18 +64,34 @@ export default function App() {
 
   return (
     <>
-      <Guests />
+      {/* <Guests /> */}
       <div className="Main_Content">
         <BeerList
           beers={beers}
           clickHandler={(e) => {
-            console.log(e.target.dataset.index);
+            // setBeers((beers) => {
+            //   return beers.map((beer) => {
+            //     if (beer.id === Number(e.target.dataset.index)) {
+            //       return {
+            //         ...beer,
+            //         focus: beer.focus ? false : true,
+            //       };
+            //     } else {
+            //       return {
+            //         ...beer,
+            //         focus: false,
+            //       };
+            //     }
+            //   });
+            // });
+            setFocus([...e.target.parentElement.querySelectorAll("li")].indexOf(e.target));
           }}
         />
-        <BeerPreview />
+        <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} />
       </div>
       <Order />
       <button onClick={themeToggle}>Theme toggle</button>
+
     </>
   );
 }

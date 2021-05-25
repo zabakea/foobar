@@ -6,9 +6,9 @@
   flex-wrap: nowrap;
   flex: 1;
   justify-content: space-between;
-  align-content: start;
   z-index: 3;
   pointer-events: none;
+  align-content: flex-start;
 }
 
 .Basket_Total {

@@ -1,11 +1,14 @@
 const BeerListUL = ({ beers, clickHandler }) => {
+  // console.table(beers);
   return (
     <ul>
-      {beers.map((beer, index) => (
-        <li key={beer.id} data-index={index} onClick={clickHandler}>
-          {beer.beer}
-        </li>
-      ))}
+      {beers.map((beer) => {
+        return (
+          <li key={beer.id} data-index={beer.id} onClick={clickHandler} className={beer.focus ? "focus" : ""}>
+            {beer.beer}
+          </li>
+        );
+      })}
     </ul>
   );
 };
