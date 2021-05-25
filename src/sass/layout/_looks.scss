@@ -1,5 +1,5 @@
-@import "../themes/theme";
 @import "../base/typography";
+@import "../themes/theme_dark";
 
 body {
   background-color: $bg-color;
@@ -39,6 +39,7 @@ ul {
   flex-basis: 0;
   transform: translate(0, -81%);
   padding: 0.5em 1em;
+  pointer-events: all;
   &:hover {
     animation: slidedown 1s forwards;
   }

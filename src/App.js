@@ -48,6 +48,20 @@ function App() {
   // console.log(prices);
   // console.log(types);
 
+  //changing themes
+  var theme = true;
+  const root = document.documentElement;
+
+  function themeToggle() {
+    if (theme) {
+      theme = false;
+      root.style.setProperty("--header-color", "green");
+    } else {
+      theme = true;
+      root.style.setProperty("--header-color", "white");
+    }
+  }
+
   return (
     <>
       {/* <Guests /> */}
@@ -75,9 +89,9 @@ function App() {
         />
         <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} />
       </div>
-      {/* <Order /> */}
+      <Order />
+      <button onClick={themeToggle}>Theme toggle</button>
+
     </>
   );
 }
-
-export default App;
