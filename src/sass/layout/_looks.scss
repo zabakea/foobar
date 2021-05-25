@@ -36,7 +36,8 @@ ul {
 .Guest_Container {
   flex-grow: 1;
   flex-basis: 0;
-  transform: translate(0, -81%);
+  transform: translate(0, -80%);
+  height: min-content;
   padding: 0.5em 1em;
   pointer-events: all;
   &:hover {
@@ -50,11 +51,11 @@ ul {
 
 @keyframes slidedown {
   0% {
-    translate: (0, -85%);
+    transform: translate(0, -80%);
     // border: 0px solid $header-color;
   }
   100% {
-    transform: translate(0, -3%);
+    transform: translate(0, -2%);
     background-color: var(--header-fill);
     backdrop-filter: blur(5px);
     // border: 1px solid $header-color;

@@ -53,7 +53,7 @@ export default function App() {
   //changing themes
 
   return (
-    <div className={`${theme ? "Dark_Theme" : "Light_Theme"}`}>
+    <div className={`Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`}>
       <Guests />
       <div className="Main_Content">
         <BeerList
@@ -79,14 +79,16 @@ export default function App() {
         />
         <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} />
       </div>
-      <Order />
-      <button
-        className={`Theme_Toggle ${theme ? "Theme_Toggle_Moon" : "Theme_Toggle_Sun"}`}
-        onClick={() => {
-          themeToggle(!theme);
-          console.log(theme);
-        }}
-      ></button>
+      <div className="Footer_Content">
+        <button
+          className={`Theme_Toggle ${theme ? "Theme_Toggle_Moon" : "Theme_Toggle_Sun"}`}
+          onClick={() => {
+            themeToggle(!theme);
+            console.log(theme);
+          }}
+        ></button>
+        <Order />
+      </div>
     </div>
   );
 }
