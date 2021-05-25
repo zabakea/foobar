@@ -15,21 +15,26 @@ export default function App() {
     fetch("https://pivobar.herokuapp.com/")
       .then((res) => res.json())
       .then((data) => {
-        setBeers(
-          data.taps.map((btype) => {
-            return {
-              ...btype,
-              focus: false,
-            };
-          })
-        );
+        //UNDERSTAND IT BEFORE AN EXAM ! ! !
+        const noDoubles = data.taps.reduce((acc, current) => {
+          const x = acc.find((item) => item.beer === current.beer);
+          if (!x) {
+            return acc.concat([current]);
+          } else {
+            return acc;
+          }
+        }, []);
+        console.log(noDoubles);
+        setBeers(noDoubles);
       });
   }, []);
 
   useEffect(() => {
     fetch("https://pivobar.herokuapp.com/beertypes")
       .then((res) => res.json())
-      .then(setDetail);
+      .then((data) => {
+        setDetail(data);
+      });
   }, []);
 
   useEffect(() => {
@@ -67,24 +72,10 @@ export default function App() {
       <Guests />
       <div className="Main_Content">
         <BeerList
+          focus={focus}
           beers={beers}
           clickHandler={(e) => {
-            // setBeers((beers) => {
-            //   return beers.map((beer) => {
-            //     if (beer.id === Number(e.target.dataset.index)) {
-            //       return {
-            //         ...beer,
-            //         focus: beer.focus ? false : true,
-            //       };
-            //     } else {
-            //       return {
-            //         ...beer,
-            //         focus: false,
-            //       };
-            //     }
-            //   });
-            // });
-            setFocus([...e.target.parentElement.querySelectorAll("li")].indexOf(e.target));
+            setFocus(() => [...e.target.parentElement.querySelectorAll("li")].indexOf(e.target));
           }}
         />
         <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} />
@@ -94,3 +85,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;

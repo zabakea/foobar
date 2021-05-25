@@ -1,10 +1,9 @@
-import { setState } from "react";
+// import { setState } from "react";
 
 export function post(e) {
   e.preventDefault();
 
   //this function should post data to database
-
   const data = [
     { name: "Hoppily Ever After", amount: 1 },
     { name: "Row 26", amount: 2 },
@@ -12,7 +11,7 @@ export function post(e) {
 
   console.log("Post" + data);
 
-  const postData = JSON.stringify(data);
+  // const postData = JSON.stringify(data);
 
   //below posting function - don't know the address and x-apikey
   //   fetch("", {
@@ -56,18 +55,18 @@ export default function Form() {
   return (
     <form>
       <div className="Field">
-        <label for="cardnumber">card number</label>
+        <label htmlFor="cardnumber">card number</label>
         <input type="text" id="cardnumber" title="cardname" minLength="16" maxLength="19" placeholder="1234 1234 1234 1234" onChange={insertSpaces}></input>
         <span className="Error_Cardnumber">Card number should be 16 digits long.</span>
       </div>
 
       <div className="Field">
-        <label for="name">owner</label>
+        <label htmlFor="name">owner</label>
         <input type="text" id="name" title="name" placeholder="John Doe"></input>
       </div>
 
       <div className="Field">
-        <label for="expdate">exp date</label>
+        <label htmlFor="expdate">exp date</label>
         <input type="text" id="expmonth" title="expdate" maxLength="2" placeholder="MM"></input>
         <span className="Error_Month">Month should be 2 digits long.</span>
         <input type="text" id="expyear" title="expdate" minLength="4" maxLength="4" placeholder="YYYY"></input>
