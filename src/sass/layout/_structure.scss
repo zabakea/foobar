@@ -90,7 +90,8 @@
 
 .Footer_Content {
   grid-area: footer_container;
-  //   overflow: hidden;
+  overflow: hidden;
   align-items: start;
   justify-items: start;
+  position: relative;
 }
