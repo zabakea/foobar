@@ -1,11 +1,11 @@
-// import Order from "./Order";
+import Order from "./Order";
 import BeerPreview from "./BeerPreview";
 import BeerList from "./BeerList";
-// import Guests from "./Guests";
+import Guests from "./Guests";
 import "./sass/main.scss";
 import { useEffect, useState } from "react";
 
-function App() {
+export default function App() {
   const [beers, setBeers] = useState([]);
   const [focus, setFocus] = useState(0);
   const [detail, setDetail] = useState([]);
@@ -64,7 +64,7 @@ function App() {
 
   return (
     <>
-      {/* <Guests /> */}
+      <Guests />
       <div className="Main_Content">
         <BeerList
           beers={beers}
@@ -91,7 +91,6 @@ function App() {
       </div>
       <Order />
       <button onClick={themeToggle}>Theme toggle</button>
-
     </>
   );
 }
