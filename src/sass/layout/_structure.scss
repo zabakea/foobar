@@ -1,6 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.Grid_Container {
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 80% 10%;
+  gap: 0px 0px;
+  align-items: start;
+  grid-template-areas:
+    "guest_container"
+    "main_container"
+    "footer_container";
+}
+
 .Guests {
-  position: sticky;
-  top: 0;
+  grid-area: guest_container;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -25,16 +43,15 @@
 }
 
 .Main_Content {
-  position: absolute;
+  grid-area: main_container;
   z-index: 2;
-  width: 95vw;
-  top: 15vh;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: baseline;
   margin: 1em;
+  padding: 1em;
 }
 
 .Beer_Preview {
@@ -44,6 +61,7 @@
   flex-wrap: nowrap;
   width: 25em;
   height: 70vh;
+  color: var(--form-color);
 }
 
 .Beer_Desc {
@@ -68,4 +86,11 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+}
+
+.Footer_Content {
+  grid-area: footer_container;
+  //   overflow: hidden;
+  align-items: start;
+  justify-items: start;
 }
