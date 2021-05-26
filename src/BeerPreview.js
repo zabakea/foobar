@@ -8,7 +8,6 @@ const BeerPreview = ({ beers, prices, details, focus }) => {
   if (beers.length === 0 || prices.length === 0 || details.length === 0) {
     return null;
   }
-  // console.log(beers, prices, details, focus);
   let focusedBeer = beers[focus];
   let beerDet = details.find((el) => el.name === focusedBeer.beer);
   let beerPrice = prices.find((el) => el.name === focusedBeer.beer);

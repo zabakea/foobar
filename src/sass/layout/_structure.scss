@@ -28,6 +28,36 @@
   pointer-events: none;
   align-content: flex-start;
 }
+.Guest_Container {
+  flex-grow: 1;
+  flex-basis: 0;
+  transform: translate(0, -80%);
+  height: min-content;
+  padding: 0.5em 1em;
+  pointer-events: all;
+  &:hover {
+    animation: slidedown 1s forwards;
+  }
+  z-index: 5;
+  color: var(--form-color);
+}
+
+//showing up full into about the guest table
+
+@keyframes slidedown {
+  0% {
+    transform: translate(0, -80%);
+    // border: 0px solid $header-color;
+  }
+  100% {
+    transform: translate(0, -2%);
+    background-color: var(--header-fill);
+    backdrop-filter: blur(5px);
+    // border: 1px solid $header-color;
+    border-radius: 2px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+  }
+}
 
 .Basket_Total {
   display: flex;
@@ -48,7 +78,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: baseline;
   margin: 1em;
   padding: 1em;
@@ -68,6 +98,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  height: min-content;
 }
 
 .Beer_Label {
