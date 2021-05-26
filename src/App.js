@@ -1,8 +1,7 @@
-import "./sass/main.scss"
-import Pages from "./pages/index"
+import "./sass/main.scss";
+import Pages from "./pages/index";
 
 function App() {
-
   return (
     <div>
       <Pages />

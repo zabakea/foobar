@@ -127,3 +127,73 @@
   justify-items: start;
   position: relative;
 }
+
+//This part is for dashboard - styling for Header and Footer
+
+.Dash_Grid_Container {
+  max-height: 100vh;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+  align-items: start;
+  grid-template-areas:
+    "dash_header"
+    "dash_main"
+    "dash_footer";
+}
+
+.Dash_Header {
+  grid-area: dash_header;
+
+  .Image_Box {
+    align-self: flex-end;
+    transform: translate(0, -5em);
+  }
+}
+
+.Dash_Main {
+  grid-area: dash_main;
+}
+
+.Dash_Footer {
+  grid-area: dash_footer;
+
+  .Image_Box {
+    align-self: flex-start;
+    transform: translate(0, 5em);
+  }
+}
+
+.Dash_Header,
+.Dash_Footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  gap: 1em;
+
+  .Image_Box {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 12%;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  }
+}
+
+//Styling for Dash_Main and Manager's panel
+
+.Dashboard_Content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: 1px solid white;
+
+  & > * {
+    border: 1px solid white;
+    text-align: center;
+  }
+}

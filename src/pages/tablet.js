@@ -2,6 +2,7 @@ import Order from "../Order";
 import BeerPreview from "../BeerPreview";
 import BeerList from "../BeerList";
 import Guests from "../Guests";
+import ThemeToggle from "../ThemeToggle";
 // import "../sass/main.scss";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -89,13 +90,13 @@ const Tablet = () => {
         <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} />
       </div>
       <div className="Footer_Content">
-        <button
-          className={`Theme_Toggle ${theme ? "Theme_Toggle_Moon" : "Theme_Toggle_Sun"}`}
-          onClick={() => {
+        <ThemeToggle
+          Click={() => {
             themeToggle(!theme);
             console.log(theme);
           }}
-        ></button>
+          theme={theme}
+        />
         <Order />
       </div>
     </div>
