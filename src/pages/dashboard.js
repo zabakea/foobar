@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ThemeToggle from "../ThemeToggle";
 import Dash_Header from "../Dash_Header";
 import Dash_Footer from "../Dash_Footer";
 import Dash_Main from "../Dash_Main";
@@ -8,6 +7,41 @@ const Dashboard = () => {
   useEffect(() => {
     document.title = "Dashboard";
   });
+
+  //fetching data
+
+  const [queue, setQueue] = useState([]);
+  const [beerTypes, setBeerTypes] = useState([]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    fetch("https://pivobar.herokuapp.com/", { signal: signal })
+      .then((res) => res.json())
+      .then((data) => {
+        setQueue(data);
+      });
+
+    return function cleaup() {
+      abortController.abort();
+    };
+  }, []);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    fetch("https://pivobar.herokuapp.com/beertypes", { signal: signal })
+      .then((res) => res.json())
+      .then((data) => {
+        setBeerTypes(data);
+      });
+
+    return function cleaup() {
+      abortController.abort();
+    };
+  }, []);
+
+  console.log(beerTypes, queue);
 
   const [theme, themeToggle] = useState(true);
 
