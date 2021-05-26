@@ -15,9 +15,10 @@ const Tablet = () => {
     const [prices, setPrices] = useState([]);
     const [theme, themeToggle] = useState(true);
 
-
     useEffect(() => {
-        fetch("https://pivobar.herokuapp.com/")
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+        fetch("https://pivobar.herokuapp.com/", { signal: signal })
             .then((res) => res.json())
             .then((data) => {
                 //UNDERSTAND IT BEFORE AN EXAM ! !
@@ -29,20 +30,30 @@ const Tablet = () => {
                         return acc;
                     }
                 }, []);
-                console.log(noDoubles);
                 setBeers(noDoubles);
             });
+        return function cleaup() {
+            abortController.abort();
+        };
     }, []);
 
     useEffect(() => {
-        fetch("https://pivobar.herokuapp.com/beertypes")
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+        fetch("https://pivobar.herokuapp.com/beertypes", { signal: signal })
             .then((res) => res.json())
             .then((data) => {
                 setDetail(data);
             });
+
+        return function cleaup() {
+            abortController.abort();
+        };
     }, []);
 
     useEffect(() => {
+        const abortController = new AbortController();
+        const signal = abortController.signal;
         fetch("https://videogames-20c7.restdb.io/rest/foobar", {
             method: "get",
             headers: {
@@ -50,9 +61,15 @@ const Tablet = () => {
                 "x-apikey": "6074094df592f7113340efe3",
                 "cache-control": "no-cache",
             },
+            signal: signal,
         })
             .then((resPrice) => resPrice.json())
-            .then(setPrices);
+            .then((data) => {
+                setPrices(data);
+            });
+        return function cleaup() {
+            abortController.abort();
+        };
     }, []);
 
     // console.log(prices);
