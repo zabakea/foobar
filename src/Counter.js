@@ -6,13 +6,14 @@ const Counter = (count) => {
 
     useInterval(() => {
         setSum(sum + count.count);
-    }, 4000);
+    }, count.count * 5000);
     console.log(sum);
 
     return (
-        <div className="Counter"> Today we have sold{sum} beers
-            {/* <p>{new Date().toLocaleTimeString()}</p> */}
-        </div>
+        <p className="Counter"> Today we have sold <br />
+            <div className="Sum">{sum}</div> <p>beers</p>
+
+        </p>
     )
 };
 
