@@ -10,9 +10,10 @@ const GuestContainer = ({ index, focusing, guest, basket }) => {
         {/* <p>add Beers</p> */}
         {basket.map((e) => {
           return (
-            <p key={e.name} style={{ whiteSpace: "nowrap" }}>
-              {e.name}
-            </p>
+            <div key={e.name} style={{ display: "flex", justifyContent: "space-between" }}>
+              <p style={{ whiteSpace: "nowrap", padding: "0.5em 0" }}>{e.name}</p>
+              <p style={{ padding: "0.5em 0" }}>{e.amount}</p>
+            </div>
           );
         })}
       </div>
