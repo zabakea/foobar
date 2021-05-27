@@ -33,23 +33,31 @@ const Tablet = () => {
       let targetBasket = prev[guest - 1];
       let isHere = (el) => el.name === beerPrice.name;
       let Where = targetBasket.findIndex(isHere);
+      let newBasket = [];
       if (Where > -1) {
-        switch (e.target.dataset.act) {
-          case "+":
-            targetBasket.splice(Where, 1, adding(targetBasket[Where]));
-            break;
-          case "-":
-            console.log("substracting");
-            targetBasket.splice(Where, 1, substr(targetBasket[Where]));
-            break;
-          default:
-            console.log("missed");
+        if (e.target.dataset.act === "+") {
+          newBasket = targetBasket.map((el, index) => {
+            if (Where === index) {
+              return adding(el);
+            } else {
+              return el;
+            }
+          });
+        } else {
+          newBasket = targetBasket.map((el, index) => {
+            if (Where === index) {
+              return substr(el);
+            } else {
+              return el;
+            }
+          });
         }
       } else {
-        targetBasket.push(createNew(beerPrice.name, beerPrice.price));
+        // targetBasket.push(createNew(beerPrice.name, beerPrice.price));
+        newBasket = targetBasket.concat(createNew(beerPrice.name, beerPrice.price));
       }
       let New = [...prev];
-      New[guest - 1] = targetBasket;
+      New[guest - 1] = newBasket;
       // console.log(New);
       return New;
     });
