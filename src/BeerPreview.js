@@ -2,9 +2,9 @@ import ButtonPlus from "./ButtonPlus";
 import ButtonMinus from "./ButtonMinus";
 // import { elhefe, fairytaleale, githop, hollaback, hoppilyeverafter, mowintime, row26, ruinedchildhood, sleighride, steampunk } from "./images";
 import Images from "./images/index";
-console.log(Images);
 
-const BeerPreview = ({ beers, prices, details, focus }) => {
+const BeerPreview = ({ beers, prices, details, focus, onClick }) => {
+  // console.log(onClick);
   if (beers.length === 0 || prices.length === 0 || details.length === 0) {
     return null;
   }
@@ -12,19 +12,19 @@ const BeerPreview = ({ beers, prices, details, focus }) => {
   let beerDet = details.find((el) => el.name === focusedBeer.beer);
   let beerPrice = prices.find((el) => el.name === focusedBeer.beer);
   let imgName = beerDet.name.toLowerCase().replace(/ /g, "");
-  console.log(beerDet, prices);
+  // console.log(beerPrice);
 
   return (
     <div className="Beer_Preview">
       <div className="Beer_Label">
-        <ButtonMinus />
+        <ButtonMinus onClick={onClick} />
         <div className="Image_Container">
           <img src={Images[imgName]} alt="none"></img>
           <div className="Amount_Block">
             <span className="Animated_Amount">3</span>
           </div>
         </div>
-        <ButtonPlus />
+        <ButtonPlus onClick={onClick} />
       </div>
       <div className="Beer_Desc">
         <h1>Header</h1>

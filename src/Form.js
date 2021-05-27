@@ -27,7 +27,7 @@ export function post(e) {
   //     .then((data) => console.log(data));
 }
 
-export default function Form() {
+const Form = () => {
   function insertSpaces(e) {
     e.target.value = e.target.value
       .replace(/[^\dA-Z]/g, "")
@@ -88,7 +88,8 @@ export default function Form() {
       <button className="MobilePay" onClick={post}>
         MobilePay
       </button>
-      ;
     </>
   );
-}
+};
+
+export default Form;

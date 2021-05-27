@@ -12,7 +12,89 @@ const Tablet = () => {
   const [detail, setDetail] = useState([]);
   const [prices, setPrices] = useState([]);
   const [theme, themeToggle] = useState(true);
+  const [guest, setGuest] = useState(1);
+  const [baskets, setBaskets] = useState([[], [], [], []]);
+  let beerPrice = prices.find((el) => el.name === beers[focus].beer);
+  const handleAdding = (e) => {
+    function createNew(name, price) {
+      return {
+        name,
+        amount: 1,
+        price,
+      };
+    }
+    function adding(obj) {
+      return { ...obj, amount: obj.amount + 1 };
+    }
+    function substr(obj) {
+      console.log(obj.amount);
+      return { ...obj, amount: obj.amount - 1 };
+    }
+    setBaskets((prev) => {
+      console.log("this runs");
+      let targetBasket = prev[guest - 1];
+      let isHere = (el) => el.name === beerPrice.name;
+      let Where = targetBasket.findIndex(isHere);
+      const update = () => {
+        if (Where > -1) {
+          console.log(targetBasket[Where]);
+          switch (e.target.dataset.act) {
+            case "+":
+              targetBasket.splice(Where, 1, adding(targetBasket[Where]));
+              break;
+            case "-":
+              targetBasket.splice(Where, 1, substr(targetBasket[Where]));
+              break;
+            default:
+              console.log("missed");
+          }
+        } else {
+          console.log("nothere");
+          return targetBasket.push(createNew(beerPrice.name, beerPrice.price));
+        }
+      };
+      let newBasket = update();
+      console.log(targetBasket);
+      let New = [...prev];
+      New[guest - 1] = targetBasket;
+      return New;
+    });
 
+    // setBaskets((prev) => {
+    //   console.log(baskets);
+    //   let targetBasket = prev[guest - 1];
+    //   let isHere = (el) => el.name === beerPrice.name;
+    //   let Where = targetBasket.findIndex(isHere);
+    //   const update = () => {
+    //     console.log(Where);
+    //     if (Where > -1) {
+    //       console.log("here");
+    //       if (e.target.classList.contains("Plus")) {
+    //         console.log(targetBasket);
+    //         return [
+    //           targetBasket.map((el) => {
+    //             if (el.name === beerPrice.name) {
+    //               return { ...el, amount: el.amount++ };
+    //             }
+    //             return el;
+    //           }),
+    //         ];
+    //       }
+    //       return [targetBasket[Where]];
+    //     } else {
+    //       console.log("is not");
+    //       if (e.target.classList.contains("Plus")) {
+    //         return createNew(beerPrice.name, 1, beerPrice.price);
+    //       } else {
+    //         console.log("minus");
+    //       }
+    //     }
+    //   };
+    //   prev.splice(guest - 1, 1, [update()]);
+    //   console.log(baskets);
+    //   return prev;
+    // });
+  };
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
@@ -77,7 +159,15 @@ const Tablet = () => {
 
   return (
     <div className={`Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`}>
-      <Guests />
+      <Guests
+        focusing={(e) => {
+          let index = e.target.dataset.index;
+          // console.log(index);
+          setGuest(index);
+        }}
+        guest={guest}
+        baskets={baskets}
+      />
       <div className="Main_Content">
         <BeerList
           focus={focus}
@@ -86,7 +176,7 @@ const Tablet = () => {
             setFocus(() => [...e.target.parentElement.querySelectorAll("li")].indexOf(e.target));
           }}
         />
-        <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} />
+        <BeerPreview beers={beers} prices={prices} details={detail} focus={focus} onClick={handleAdding} />
       </div>
       <div className="Footer_Content">
         <button

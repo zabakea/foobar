@@ -5,7 +5,7 @@
 }
 
 .Grid_Container {
-  max-height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 80% 10%;
@@ -31,19 +31,58 @@
 .Guest_Container {
   flex-grow: 1;
   flex-basis: 0;
-  // transform: translate(0, -80%);
   height: min-content;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em 0.3em 1em;
+  margin: 0 0.5em;
   pointer-events: all;
-  &:hover {
-    animation: slidedown 1s forwards;
-  }
   z-index: 5;
   color: var(--form-color);
-  background-color: var(--header-fill);
-  backdrop-filter: blur(5px);
-  border-radius: 2px;
-  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(1, 1, 1, 0);
+  border-top: none;
+  border-radius: 0px 0px 3px 3px;
+  transition: 0.3s 0.1s ease-out;
+  &.focus {
+    background-color: var(--header-fill);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--header-color);
+    border-top: none;
+    // box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+    .Basket_Container {
+      max-height: 100px;
+      // overflow: visible;
+    }
+  }
+  .Guest_Header {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    & > * {
+      pointer-events: none;
+    }
+    .Basket_Total {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      padding-top: 0.1em;
+      .Guest_Number {
+        padding: 0.5em;
+        cursor: pointer;
+      }
+    }
+  }
+  .Basket_Container {
+    display: flex;
+    justify-content: space-evenly;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+    & > p {
+      padding: 0 0 1em 0;
+      font-size: 0.8em;
+    }
+  }
+  // &:hover > .Guest_Form {
+  //   height: 100%;
+  // }
 }
 
 //showing up full into about the guest table
@@ -63,18 +102,11 @@
 //   }
 // }
 
-.Basket_Total {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-}
-
-.Order {
-  margin: auto;
-  width: 20%;
-  text-align: center;
-}
+// .Order {
+//   margin: auto;
+//   width: 20%;
+//   text-align: center;
+// }
 
 .Main_Content {
   grid-area: main_container;

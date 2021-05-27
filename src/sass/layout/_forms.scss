@@ -1,12 +1,18 @@
 .Guest_Form {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.5s ease-out;
+  &.open {
+    height: 100%;
+  }
   p {
     text-align: center;
   }
 }
-
-.Guest_Container:hover .Guest_Form {
-  height: auto;
-}
+// .Guest_Container:hover > .Guest_Form {
+//   transition: height 0.5s ease-out;
+//   height: 100;
+// }
 
 .Field {
   display: flex;

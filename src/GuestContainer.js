@@ -1,15 +1,21 @@
 import Form from "./Form";
 
-export default function GuestContainer() {
+const GuestContainer = ({ index, focusing, guest, basket }) => {
+  // console.log(basket);
+  // console.log(basket.length === 0 ? "true" : "false");
+  //
   return (
-    <div className="Guest_Container">
-      <div className="GuestHeader">
-        <div className="Basket_Container">
-          <p>Add Beers</p>
-        </div>
+    <div className={`Guest_Container ${Number(guest) === index ? "focus" : ""}`}>
+      <div className="Basket_Container">
+        {/* <p>add Beers</p> */}
+        {basket.map((e) => {
+          return <p key={e.name}>{e.name}</p>;
+        })}
+      </div>
+      <div className="Guest_Header" onClick={focusing} data-index={index}>
         <div className="Basket_Total">
-          <p className="Guest_Number">Guest 1</p>
-          <p className="Guest_Total_Amount">60,-</p>
+          <p className="Guest_Number">{"Guest " + index}</p>
+          {/* <p className="Guest_Total_Amount">60,-</p> */}
         </div>
       </div>
       <div className="Guest_Form">
@@ -17,4 +23,5 @@ export default function GuestContainer() {
       </div>
     </div>
   );
-}
+};
+export default GuestContainer;
