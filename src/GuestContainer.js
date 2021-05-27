@@ -6,16 +6,19 @@ const GuestContainer = ({ index, focusing, guest, basket }) => {
   //
   return (
     <div className={`Guest_Container ${Number(guest) === index ? "focus" : ""}`}>
-      <div className="Basket_Container" style={{ display: "flex", flexDirection: "column" }}>
-        {/* <p>add Beers</p> */}
-        {basket.map((e) => {
-          return (
-            <div key={e.name} style={{ display: "flex", justifyContent: "space-between" }}>
-              <p style={{ whiteSpace: "nowrap", padding: "0.5em 0" }}>{e.name}</p>
-              <p style={{ padding: "0.5em 0" }}>{e.amount}</p>
-            </div>
-          );
-        })}
+      <div className="Basket_Container">
+        {basket.length > 0 ? (
+          basket.map((e) => {
+            return (
+              <div key={e.name} className="Basket_Item">
+                <p style={{ whiteSpace: "nowrap", padding: "0.5em 0" }}>{e.name}</p>
+                <p style={{ padding: "0.5em 0" }}>{e.amount}</p>
+              </div>
+            );
+          })
+        ) : (
+          <p style={{ textAlign: "center" }}>add beers</p>
+        )}
       </div>
       <div className="Guest_Header" onClick={focusing} data-index={index}>
         <div className="Basket_Total">
