@@ -43,10 +43,10 @@ p {
 // This is the part for dashboard
 
 .Counter {
-  border: 2px solid black;
   height: 20vw;
   font: $body-font;
   font-size: 2vw;
+  color: var(--form-color);
   .Sum {
     font-family: $header-font;
     color: var(--header-fill);

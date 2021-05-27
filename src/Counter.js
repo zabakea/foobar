@@ -10,10 +10,10 @@ const Counter = (count) => {
     console.log(sum);
 
     return (
-        <p className="Counter"> Today we have sold <br />
-            <div className="Sum">{sum}</div> <p>beers</p>
+        <div className="Counter"> Today we have sold <br />
+            <h1 className="Sum">{sum}</h1> <p>beers</p>
 
-        </p>
+        </div>
     )
 };
 
