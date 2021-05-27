@@ -27,36 +27,30 @@ const Tablet = () => {
       return { ...obj, amount: obj.amount + 1 };
     }
     function substr(obj) {
-      console.log(obj.amount);
       return { ...obj, amount: obj.amount - 1 };
     }
     setBaskets((prev) => {
-      console.log("this runs");
       let targetBasket = prev[guest - 1];
       let isHere = (el) => el.name === beerPrice.name;
       let Where = targetBasket.findIndex(isHere);
-      const update = () => {
-        if (Where > -1) {
-          console.log(targetBasket[Where]);
-          switch (e.target.dataset.act) {
-            case "+":
-              targetBasket.splice(Where, 1, adding(targetBasket[Where]));
-              break;
-            case "-":
-              targetBasket.splice(Where, 1, substr(targetBasket[Where]));
-              break;
-            default:
-              console.log("missed");
-          }
-        } else {
-          console.log("nothere");
-          return targetBasket.push(createNew(beerPrice.name, beerPrice.price));
+      if (Where > -1) {
+        switch (e.target.dataset.act) {
+          case "+":
+            targetBasket.splice(Where, 1, adding(targetBasket[Where]));
+            break;
+          case "-":
+            console.log("substracting");
+            targetBasket.splice(Where, 1, substr(targetBasket[Where]));
+            break;
+          default:
+            console.log("missed");
         }
-      };
-      let newBasket = update();
-      console.log(targetBasket);
+      } else {
+        targetBasket.push(createNew(beerPrice.name, beerPrice.price));
+      }
       let New = [...prev];
       New[guest - 1] = targetBasket;
+      // console.log(New);
       return New;
     });
 
