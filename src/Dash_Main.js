@@ -1,19 +1,43 @@
+import { useState } from "react";
+import Charts from "./Charts";
+import Counter from "./Counter";
 import ThemeToggle from "./ThemeToggle";
 
-const Dash_Main = ({ themeToggler, theme }) => {
-  return (
-    <div className="Dash_Main">
-      <div className="Dashboard_Content">
-        <div className="Charts">charts</div>
-        <div className="Waiting_Customers">queue</div>
-        <div className="Bartenders">bartenders</div>
-        <div className="Counter">counter</div>
+const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
+
+
+  if (data.length !== 0 && beerTypes.length !== 0) {
+
+    // let count = data.queue[0].order.length;
+
+
+
+    return (
+      <div className="Dash_Main">
+        <div className="Dashboard_Content">
+          <Charts className="Charts" />
+          <div className="Waiting_Customers">{data.bartenders[0].statusDetail}</div>
+          <div className="Bartenders">bartenders</div>
+          <Counter count={data.serving[0].order.length} />
+        </div>
+
+
+        <div className="Manager_Content">
+          <ThemeToggle Click={themeToggler} theme={theme} />
+        </div>
+
       </div>
-      <div className="Manager_Content">
-        <ThemeToggle Click={themeToggler} theme={theme} />
-      </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <p>Loading</p>
+    )
+  }
+
+
 };
 
-export default Dash_Main;
+
+
+
+export default DashMain;
