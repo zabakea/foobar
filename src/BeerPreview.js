@@ -1,6 +1,5 @@
 import ButtonPlus from "./ButtonPlus";
 import ButtonMinus from "./ButtonMinus";
-// import { elhefe, fairytaleale, githop, hollaback, hoppilyeverafter, mowintime, row26, ruinedchildhood, sleighride, steampunk } from "./images";
 import Images from "./images/index";
 console.log(Images);
 

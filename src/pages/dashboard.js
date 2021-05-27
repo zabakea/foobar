@@ -7,6 +7,8 @@ const Dashboard = () => {
   useEffect(() => {
     document.title = "Dashboard";
   });
+  //state for themes
+  const [theme, themeToggle] = useState(true);
 
   //fetching data
 
@@ -43,8 +45,6 @@ const Dashboard = () => {
 
   console.log(beerTypes, queue);
 
-  const [theme, themeToggle] = useState(true);
-
   return (
     <div className={`Dash_Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`} style={{ overflow: "hidden" }}>
       <Dash_Header />
@@ -54,6 +54,8 @@ const Dashboard = () => {
           console.log(theme);
         }}
         theme={theme}
+        data={queue}
+        beerTypes={beerTypes}
       />
       <Dash_Footer />
     </div>
