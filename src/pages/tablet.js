@@ -16,10 +16,10 @@ const Tablet = () => {
   const [baskets, setBaskets] = useState([[], [], [], []]);
   let beerPrice = prices.find((el) => el.name === beers[focus].beer);
   const handleAdding = (e) => {
-    function createNew(name, price) {
+    function createNew(name, amount, price) {
       return {
         name,
-        amount: 1,
+        amount,
         price,
       };
     }
@@ -38,6 +38,7 @@ const Tablet = () => {
         if (e.target.dataset.act === "+") {
           newBasket = targetBasket.map((el, index) => {
             if (Where === index) {
+              console.log(adding(el));
               return adding(el);
             } else {
               return el;
@@ -53,49 +54,17 @@ const Tablet = () => {
           });
         }
       } else {
-        // targetBasket.push(createNew(beerPrice.name, beerPrice.price));
-        newBasket = targetBasket.concat(createNew(beerPrice.name, beerPrice.price));
+        if (e.target.dataset.act === "+") {
+          newBasket = targetBasket.concat(createNew(beerPrice.name, 1, beerPrice.price));
+        } else {
+          newBasket = targetBasket;
+        }
       }
       let New = [...prev];
-      New[guest - 1] = newBasket;
-      // console.log(New);
+      let cleanedUp = newBasket.filter((el) => (el.amount > 0 ? el : null));
+      New[guest - 1] = cleanedUp;
       return New;
     });
-
-    // setBaskets((prev) => {
-    //   console.log(baskets);
-    //   let targetBasket = prev[guest - 1];
-    //   let isHere = (el) => el.name === beerPrice.name;
-    //   let Where = targetBasket.findIndex(isHere);
-    //   const update = () => {
-    //     console.log(Where);
-    //     if (Where > -1) {
-    //       console.log("here");
-    //       if (e.target.classList.contains("Plus")) {
-    //         console.log(targetBasket);
-    //         return [
-    //           targetBasket.map((el) => {
-    //             if (el.name === beerPrice.name) {
-    //               return { ...el, amount: el.amount++ };
-    //             }
-    //             return el;
-    //           }),
-    //         ];
-    //       }
-    //       return [targetBasket[Where]];
-    //     } else {
-    //       console.log("is not");
-    //       if (e.target.classList.contains("Plus")) {
-    //         return createNew(beerPrice.name, 1, beerPrice.price);
-    //       } else {
-    //         console.log("minus");
-    //       }
-    //     }
-    //   };
-    //   prev.splice(guest - 1, 1, [update()]);
-    //   console.log(baskets);
-    //   return prev;
-    // });
   };
   useEffect(() => {
     const abortController = new AbortController();

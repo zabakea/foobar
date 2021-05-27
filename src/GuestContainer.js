@@ -3,7 +3,13 @@ import Form from "./Form";
 const GuestContainer = ({ index, focusing, guest, basket }) => {
   // console.log(basket);
   // console.log(basket.length === 0 ? "true" : "false");
-  //
+  function summing(basket) {
+    let result = 0;
+    basket.forEach((beer) => {
+      result += beer.amount * beer.price;
+    });
+    return result;
+  }
   return (
     <div className={`Guest_Container ${Number(guest) === index ? "focus" : ""}`}>
       <div className="Basket_Container">
@@ -21,9 +27,9 @@ const GuestContainer = ({ index, focusing, guest, basket }) => {
         )}
       </div>
       <div className="Guest_Header" onClick={focusing} data-index={index}>
-        <div className="Basket_Total">
+        <div className="Basket_Total" style={basket.length > 0 ? { justifyContent: "space-between" } : { justifyContent: "space-evenly" }}>
           <p className="Guest_Number">{"Guest " + index}</p>
-          {/* <p className="Guest_Total_Amount">60,-</p> */}
+          {basket.length > 0 ? <p className="Guest_Total_Amount">{`${summing(basket)},-`}</p> : null}
         </div>
       </div>
       <div className="Guest_Form">
