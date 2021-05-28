@@ -43,7 +43,7 @@ p {
 // This is the part for dashboard
 
 .Counter {
-  height: 20vw;
+  // height: 20vw;
   font: $body-font;
   font-size: 2vw;
   color: var(--form-color);
@@ -56,4 +56,8 @@ p {
     -webkit-text-stroke: 1px var(--header-color);
     letter-spacing: 3px;
   }
+}
+
+.Pie {
+  border: 2px solid red;
 }

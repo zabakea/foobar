@@ -25,7 +25,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
     return (
       <div className="Dash_Main">
         <div className="Dashboard_Content">
-          <Charts className="Charts" />
+          <Charts serving={data.serving} />
           <div className="Waiting_Customers">{mapQueue}</div>
           <div className="Bartenders">bartenders</div>
           <Counter count={data.serving[0].order.length} />
