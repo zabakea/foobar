@@ -41,3 +41,23 @@ p {
 }
 
 // This is the part for dashboard
+
+.Counter {
+  // height: 20vw;
+  font: $body-font;
+  font-size: 2vw;
+  color: var(--form-color);
+  .Sum {
+    font-family: $header-font;
+    color: var(--header-fill);
+    font-size: 3em;
+    list-style-type: none;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke: 1px var(--header-color);
+    letter-spacing: 3px;
+  }
+}
+
+.Pie {
+  border: 2px solid red;
+}

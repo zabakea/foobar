@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Dash_Header from "../Dash_Header";
-import Dash_Footer from "../Dash_Footer";
-import Dash_Main from "../Dash_Main";
+import DashHeader from "../Dash_Header";
+import DashFooter from "../Dash_Footer";
+import DashMain from "../Dash_Main";
 
 const Dashboard = () => {
   useEffect(() => {
     document.title = "Dashboard";
   });
-  //state for themes
-  const [theme, themeToggle] = useState(true);
 
   //fetching data
 
@@ -42,23 +40,27 @@ const Dashboard = () => {
       abortController.abort();
     };
   }, []);
+  if (queue !== []) {
+  }
 
-  console.log(beerTypes, queue);
+
+  const [theme, themeToggle] = useState(true);
 
   return (
     <div className={`Dash_Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`} style={{ overflow: "hidden" }}>
-      <Dash_Header />
-      <Dash_Main
+      <DashHeader />
+      <DashMain
         themeToggler={() => {
           themeToggle(!theme);
           console.log(theme);
         }}
-        theme={theme}
         data={queue}
+        theme={theme}
         beerTypes={beerTypes}
       />
-      <Dash_Footer />
+      <DashFooter />
     </div>
   );
-};
+
+}
 export default Dashboard;
