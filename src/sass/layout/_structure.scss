@@ -200,14 +200,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 1em;
-
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
   & > * {
     // border: 1px solid white;
     text-align: center;
   }
-  & > *:not(:last-child) {
-    border-right: 1px solid white;
-  }
+  // & > *:not(:last-child) {
+  //   border-right: 1px solid white;
+  // }
 }
 
 .Manager_Content {
