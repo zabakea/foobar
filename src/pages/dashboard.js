@@ -43,7 +43,6 @@ const Dashboard = () => {
   if (queue !== []) {
   }
 
-
   const [theme, themeToggle] = useState(true);
 
   return (
@@ -61,6 +60,5 @@ const Dashboard = () => {
       <DashFooter />
     </div>
   );
-
-}
+};
 export default Dashboard;

@@ -134,8 +134,8 @@
   max-height: 100vh;
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
-  align-items: start;
+  grid-template-rows: 15vh 70vh 15vh;
+  align-items: center;
   grid-template-areas:
     "dash_header"
     "dash_main"
@@ -153,14 +153,22 @@
 
 .Dash_Main {
   grid-area: dash_main;
+  overflow: hidden;
+  height: 100%;
+
+  & > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .Dash_Footer {
   grid-area: dash_footer;
+  transform: translate(0, 5em);
 
   .Image_Box {
     align-self: flex-start;
-    transform: translate(0, 5em);
   }
 }
 
@@ -171,6 +179,7 @@
   flex-wrap: nowrap;
   justify-content: space-around;
   gap: 1em;
+  max-height: 200px;
 
   .Image_Box {
     flex-grow: 1;
@@ -190,10 +199,14 @@
 .Dashboard_Content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  border: 1px solid white;
+
+  column-gap: 1em;
 
   & > * {
-    border: 1px solid white;
     text-align: center;
   }
+}
+
+.Manager_Content {
+  display: none;
 }

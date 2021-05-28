@@ -17,6 +17,15 @@ h1 {
   margin: auto;
 }
 
+h2 {
+  font-family: $header-font;
+  color: var(--header-fill);
+  list-style-type: none;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px var(--header-color);
+  letter-spacing: 3px;
+}
+
 ul {
   font-family: $header-font;
   color: var(--header-fill);
@@ -60,4 +69,30 @@ p {
 
 .Pie {
   border: 2px solid red;
+}
+
+//Styling of queue tiles
+
+.Tile_Queue,
+.Tile_Serving {
+  margin: 1em 0em;
+  padding: 0.5em;
+  text-align: right;
+
+  p {
+    padding: 0;
+    padding-bottom: 10px;
+  }
+}
+
+.Tile_Queue {
+  font-size: 2vh;
+}
+
+.Tile_Serving {
+  text-align: left;
+  border-radius: 5px;
+  border: 1px solid var(--header-color);
+  background-color: var(--header-fill);
+  backdrop-filter: blur(5px);
 }
