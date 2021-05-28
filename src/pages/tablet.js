@@ -30,16 +30,24 @@ const Tablet = () => {
       return { ...obj, amount: obj.amount - 1 };
     }
     setBaskets((prev) => {
+      let orgin = e.target.parentElement;
       let targetBasket = prev[guest - 1];
       let isHere = (el) => el.name === beerPrice.name;
-      let Where = targetBasket.findIndex(isHere);
+      let Where = orgin.classList.contains("controls") ? targetBasket.indexOf(targetBasket[orgin.dataset.index]) : targetBasket.findIndex(isHere);
       let newBasket = [];
       if (Where > -1) {
         if (e.target.dataset.act === "+") {
           newBasket = targetBasket.map((el, index) => {
             if (Where === index) {
-              console.log(adding(el));
               return adding(el);
+            } else {
+              return el;
+            }
+          });
+        } else if (e.target.dataset.act === "-") {
+          newBasket = targetBasket.map((el, index) => {
+            if (Where === index) {
+              return substr(el);
             } else {
               return el;
             }
@@ -47,7 +55,7 @@ const Tablet = () => {
         } else {
           newBasket = targetBasket.map((el, index) => {
             if (Where === index) {
-              return substr(el);
+              return { ...el, amount: 0 };
             } else {
               return el;
             }
@@ -138,6 +146,7 @@ const Tablet = () => {
         }}
         guest={guest}
         baskets={baskets}
+        onClick={handleAdding}
       />
       <div className="Main_Content">
         <BeerList
