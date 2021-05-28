@@ -1,25 +1,34 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
+// import { useState, useEffect } from "react";
+
 
 
 
 const Charts = ({ serving }) => {
+    //mapping through servings
     const mapOrders = serving.map((singleOrder) => singleOrder.order);
+    var mergedOrders = [].concat.apply([], mapOrders);
+    console.log(mergedOrders);
+    // counting duplicate entries
+    var counts = {};
+    mergedOrders.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+    console.log(counts);
 
-    console.log(mapOrders);
 
     const state = {
-        labels: ['January', 'February', 'March',
-            'April', 'May'],
+        labels: Object.keys(counts),
         datasets: [
             {
-                label: 'Rainfall',
+                label: 'Beers',
                 backgroundColor: [
-                    '#B21F00',
-                    '#C9DE00',
-                    '#2FDE00',
+                    '#B14A5A',
+                    '#CC7E8C',
+                    '#54383C',
                     '#00A6B4',
-                    '#6800B4'
+                    '#6800B4',
+                    '#35014F',
+                    '#003350'
                 ],
                 hoverBackgroundColor: [
                     '#501800',
@@ -28,24 +37,30 @@ const Charts = ({ serving }) => {
                     '#003350',
                     '#35014F'
                 ],
-                data: [65, 59, 80, 81, 56]
+                borderColor: '#bb98ef',
+                data: Object.values(counts)
             }
         ]
-    }
+    };
+
+
+
 
     return (
         <div className="Charts">
+            <p>BEERS BEING SERVED AT THE MOMENT</p>
             <Pie className="Pie"
                 data={state}
                 options={{
                     title: {
                         display: true,
                         text: 'Beers serving at the moment',
-                        fontSize: 20
+                        fontSize: 20,
                     },
                     legend: {
                         display: true,
                         position: 'right'
+
                     }
                 }}
             />

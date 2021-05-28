@@ -59,7 +59,7 @@ p {
   .Sum {
     font-family: $header-font;
     color: var(--header-fill);
-    font-size: 3em;
+    font-size: 5em;
     list-style-type: none;
     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
     -webkit-text-stroke: 1px var(--header-color);
@@ -67,15 +67,15 @@ p {
   }
 }
 
-.Pie {
-  border: 2px solid red;
-}
+// .Pie {
+//   border: 2px solid red;
+// }
 
 //Styling of queue tiles
 
 .Tile_Queue,
 .Tile_Serving {
-  margin: 1em 0em;
+  margin: 1em 1em 1em 0;
   padding: 0.5em;
   text-align: right;
 

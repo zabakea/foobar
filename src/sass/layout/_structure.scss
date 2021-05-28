@@ -199,11 +199,14 @@
 .Dashboard_Content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
   column-gap: 1em;
 
   & > * {
+    // border: 1px solid white;
     text-align: center;
+  }
+  & > *:not(:last-child) {
+    border-right: 1px solid white;
   }
 }
 
