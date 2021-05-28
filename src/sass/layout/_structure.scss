@@ -140,6 +140,7 @@
     "dash_header"
     "dash_main"
     "dash_footer";
+  margin: 0em 2em;
 }
 
 .Dash_Header {
@@ -213,5 +214,20 @@
 }
 
 .Manager_Content {
-  display: none;
+  transform: translate(0, 0);
+  position: static;
+  height: 70vh;
+  width: 95vw;
+  border: 1px solid var(--header-color);
+  border-radius: 5px;
+  background-color: var(--header-fill);
+  backdrop-filter: blur(5px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1em;
+  padding: 0em 1em;
+
+  & > * {
+    text-align: center;
+  }
 }

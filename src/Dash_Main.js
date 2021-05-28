@@ -31,6 +31,9 @@ const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
         </div>
 
         <div className="Manager_Content">
+          <div className="Manager_Charts">manager charts</div>
+          <div className="Manager_Workers">workers</div>
+          <div className="Manager_Revenue">beers sold + revenuesome other statistics</div>
           <ThemeToggle Click={themeToggler} theme={theme} />
         </div>
       </div>
