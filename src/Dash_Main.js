@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import ThemeToggle from "./ThemeToggle";
 import TileQueue from "./TileQueue";
 import TileServing from "./TileServing";
+import TileBartenders from "./TileBartenders";
 
 const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
   if (data.length !== 0) {
@@ -21,6 +22,10 @@ const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
       return <TileServing key={single.id} id={single.id} order={single.order} name={mapServer} />;
     });
 
+    const mapWorkers = data.bartenders.map((workers) => {
+      return <TileBartenders key={workers.id} name={workers.name} status={workers.status} detail={workers.statusDetail} tap={workers.usingTap} />;
+    });
+
     return (
       <div className="Dash_Main">
         <div className="Dashboard_Content">
@@ -32,7 +37,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
 
         <div className="Manager_Content">
           <div className="Manager_Charts">manager charts</div>
-          <div className="Manager_Workers">workers</div>
+          <div className="Manager_Workers">{mapWorkers}</div>
           <div className="Manager_Revenue">beers sold + revenuesome other statistics</div>
           <ThemeToggle Click={themeToggler} theme={theme} />
         </div>
