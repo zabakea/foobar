@@ -14,17 +14,19 @@ const Dashboard = () => {
   const [beerTypes, setBeerTypes] = useState([]);
 
   useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-    fetch("https://pivobar.herokuapp.com/", { signal: signal })
-      .then((res) => res.json())
-      .then((data) => {
-        setQueue(data);
-      });
+    setInterval(() => {
+      const abortController = new AbortController();
+      const signal = abortController.signal;
+      fetch("https://pivobar.herokuapp.com/", { signal: signal })
+        .then((res) => res.json())
+        .then((data) => {
+          setQueue(data);
+        });
 
-    return function cleaup() {
-      abortController.abort();
-    };
+      return function cleaup() {
+        abortController.abort();
+      };
+    }, 7000);
   }, []);
 
   useEffect(() => {
