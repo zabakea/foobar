@@ -96,3 +96,26 @@ p {
   background-color: var(--header-fill);
   backdrop-filter: blur(5px);
 }
+
+//Styling stock labels
+
+.Display_None {
+  display: none;
+}
+
+.Stock {
+  filter: blur(5px) brightness(50%);
+}
+
+.Unavail {
+  filter: blur(1px) grayscale(100%);
+}
+
+.Stock_Text {
+  position: absolute;
+  width: 100%;
+  padding: 0em 1em;
+  color: var(--form-color);
+  font-size: 0.9vw;
+  white-space: nowrap;
+}

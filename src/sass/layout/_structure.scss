@@ -42,23 +42,6 @@
   color: var(--form-color);
 }
 
-//showing up full into about the guest table
-
-// @keyframes slidedown {
-//   0% {
-//     transform: translate(0, -80%);
-//     // border: 0px solid $header-color;
-//   }
-//   100% {
-//     transform: translate(0, -2%);
-//     background-color: var(--header-fill);
-//     backdrop-filter: blur(5px);
-//     // border: 1px solid $header-color;
-//     border-radius: 2px;
-//     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
-//   }
-// }
-
 .Basket_Total {
   display: flex;
   flex-direction: row;
@@ -145,10 +128,21 @@
 
 .Dash_Header {
   grid-area: dash_header;
+  pointer-events: none;
 
   .Image_Box {
     align-self: flex-end;
     transform: translate(0, -5em);
+    pointer-events: all;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+      animation: slidedown 0.5s forwards;
+    }
+    .Stock_Text {
+      bottom: 0.5em;
+    }
   }
 }
 
@@ -166,10 +160,19 @@
 
 .Dash_Footer {
   grid-area: dash_footer;
-  transform: translate(0, 5em);
 
   .Image_Box {
     align-self: flex-start;
+    transform: translate(0, 5em);
+    text-align: center;
+
+    &:hover {
+      animation: slidedown 0.5s forwards;
+    }
+
+    .Stock_Text {
+      top: 0;
+    }
   }
 }
 
@@ -181,6 +184,7 @@
   justify-content: space-around;
   gap: 1em;
   max-height: 200px;
+  z-index: 5;
 
   .Image_Box {
     flex-grow: 1;
@@ -217,7 +221,6 @@
   transform: translate(0, 0);
   position: static;
   height: 70vh;
-  width: 95vw;
   border: 1px solid var(--header-color);
   border-radius: 5px;
   background-color: var(--header-fill);
@@ -229,5 +232,17 @@
 
   & > * {
     text-align: center;
+  }
+}
+
+//Keyframes
+
+@keyframes slidedown {
+  0% {
+    // transform: translate(0, -5em);
+    // border: 0px solid $header-color;
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }

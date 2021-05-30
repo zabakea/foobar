@@ -12,6 +12,7 @@ const Dashboard = () => {
 
   const [queue, setQueue] = useState([]);
   const [beerTypes, setBeerTypes] = useState([]);
+  const [display, displayToggle] = useState(false);
 
   useEffect(() => {
     setInterval(() => {
@@ -49,7 +50,7 @@ const Dashboard = () => {
 
   return (
     <div className={`Dash_Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`} style={{ overflow: "hidden" }}>
-      <DashHeader />
+      <DashHeader display={display} data={queue} />
       <DashMain
         themeToggler={() => {
           themeToggle(!theme);
@@ -58,8 +59,13 @@ const Dashboard = () => {
         data={queue}
         theme={theme}
         beerTypes={beerTypes}
+        display={display}
+        displayToggle={() => {
+          displayToggle(!display);
+          console.log(display);
+        }}
       />
-      <DashFooter />
+      <DashFooter display={display} data={queue} />
     </div>
   );
 };

@@ -5,8 +5,9 @@ import ThemeToggle from "./ThemeToggle";
 import TileQueue from "./TileQueue";
 import TileServing from "./TileServing";
 import TileBartenders from "./TileBartenders";
+import { useState } from "react";
 
-const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
+const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle }) => {
   if (data.length !== 0) {
     const mapQueue = data.queue.map((single) => {
       return <TileQueue key={single.id} id={single.id} order={single.order} />;
@@ -32,13 +33,21 @@ const DashMain = ({ themeToggler, theme, data, beerTypes }) => {
           <Charts serving={data.serving} />
           <div className="Waiting_Customers">{mapQueue}</div>
           <div className="Bartenders">{mapServing}</div>
-          <Counter count={data.serving[0].order.length} />
+          <div>
+            {/* <Counter count={data.serving[0].order.length} /> */} //comented to prevent the error on refresh
+            <button className="Manager_Button" onClick={displayToggle}>
+              Managers Panel
+            </button>
+          </div>
         </div>
 
-        <div className="Manager_Content">
+        <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
           <div className="Manager_Charts">manager charts</div>
           <div className="Manager_Workers">{mapWorkers}</div>
-          <div className="Manager_Revenue">beers sold + revenuesome other statistics</div>
+          <div className="Manager_Revenue">beers sold + revenuesome other statistics </div>
+          <button className="Manager_Close" onClick={displayToggle}>
+            X
+          </button>
           <ThemeToggle Click={themeToggler} theme={theme} />
         </div>
       </div>
