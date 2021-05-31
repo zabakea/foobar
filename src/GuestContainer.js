@@ -1,6 +1,6 @@
 import Form from "./Form";
 
-const GuestContainer = ({ index, focusing, guest, basket, onClick }) => {
+const GuestContainer = ({ index, focusing, guest, basket, onClick, formFocus, form }) => {
   // console.log(basket);
   // console.log(basket.length === 0 ? "true" : "false");
   function summing(basket) {
@@ -17,7 +17,7 @@ const GuestContainer = ({ index, focusing, guest, basket, onClick }) => {
           basket.map((e, conInd) => {
             return (
               <div key={e.name} className="Basket_Item">
-                <p style={{ whiteSpace: "nowrap", padding: "0.5em 0" }}>{e.name}</p>
+                <p>{e.name}</p>
 
                 <div className="controls" data-index={conInd}>
                   <p data-act="-" onClick={onClick}>
@@ -44,9 +44,14 @@ const GuestContainer = ({ index, focusing, guest, basket, onClick }) => {
           {basket.length > 0 ? <p className="Guest_Total_Amount">{`${summing(basket)},-`}</p> : null}
         </div>
       </div>
-      <div className="Guest_Form">
+      <div className={`Guest_Form ${Number(form) === Number(index) && Number(guest) === Number(index) && basket.length > 0 ? "open" : ""}`}>
         <Form />
       </div>
+      {Number(guest) === index && basket.length > 0 ? (
+        <p className="tap" onClick={formFocus} data-index={index}>
+          {Number(form) === index ? "close" : "tap to pay"}
+        </p>
+      ) : null}
     </div>
   );
 };
