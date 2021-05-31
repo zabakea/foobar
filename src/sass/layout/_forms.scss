@@ -4,7 +4,7 @@
 .Guest_Form {
   overflow: hidden;
   height: 0;
-  transition: height 0.5s ease-out;
+  // transition: height 0.5s ease-out;
   &.open {
     height: 100%;
   }
