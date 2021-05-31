@@ -27,6 +27,9 @@ const GuestContainer = ({ index, focusing, guest, basket, onClick, formFocus, fo
                   <p data-act="+" onClick={onClick}>
                     +
                   </p>
+                  <p className="remove" data-act="rm" onClick={onClick}>
+                    remove
+                  </p>
                 </div>
               </div>
             );
