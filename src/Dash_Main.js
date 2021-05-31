@@ -1,11 +1,10 @@
-// import { useState } from "react";
 import Charts from "./Charts";
 import Counter from "./Counter";
 import ThemeToggle from "./ThemeToggle";
 import TileQueue from "./TileQueue";
 import TileServing from "./TileServing";
 import TileBartenders from "./TileBartenders";
-import { useState } from "react";
+// import { useState } from "react";
 
 const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle }) => {
   if (data.length !== 0) {
@@ -26,6 +25,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
     const mapWorkers = data.bartenders.map((workers) => {
       return <TileBartenders key={workers.id} name={workers.name} status={workers.status} detail={workers.statusDetail} tap={workers.usingTap} />;
     });
+    console.log(data.serving[0].order.length);
 
     return (
       <div className="Dash_Main">
@@ -34,7 +34,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
           <div className="Waiting_Customers">{mapQueue}</div>
           <div className="Bartenders">{mapServing}</div>
           <div>
-            {/* <Counter count={data.serving[0].order.length} /> */} //comented to prevent the error on refresh
+            <Counter count={data.serving[0].order.length === 0 ? 0 : data.serving[0].order.length} />
             <button className="Manager_Button" onClick={displayToggle}>
               Managers Panel
             </button>
@@ -42,7 +42,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
         </div>
 
         <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
-          <div className="Manager_Charts">manager charts</div>
+          <Charts serving={data.serving} />
           <div className="Manager_Workers">{mapWorkers}</div>
           <div className="Manager_Revenue">beers sold + revenuesome other statistics </div>
           <button className="Manager_Close" onClick={displayToggle}>
