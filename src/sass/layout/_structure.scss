@@ -7,7 +7,7 @@
 .Grid_Container {
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 10% 80% 10%;
   gap: 0px 0px;
   align-items: start;
@@ -17,25 +17,33 @@
     "footer_container";
 }
 
+// .Guests {
+//   grid-area: guest_container;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: nowrap;
+//   flex: 1;
+//   justify-content: space-between;
+//   z-index: 3;
+//   pointer-events: none;
+//   align-content: flex-start;
 .Guests {
   grid-area: guest_container;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex: 1;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
   z-index: 3;
   pointer-events: none;
-  align-content: flex-start;
+
   & * {
     user-select: none;
   }
 }
 .Guest_Container {
-  flex-grow: 1;
-  flex-basis: 0;
   height: min-content;
-  padding: 0.5em 1em 0.3em 1em;
+  position: relative;
+  padding: 0.5em 0.7em 0.3em 0.7em;
   margin: 0 0.5em;
   pointer-events: all;
   z-index: 5;
@@ -44,14 +52,31 @@
   border-top: none;
   border-radius: 0px 0px 3px 3px;
   transition: 0.4s ease-out;
+  // .Guest_Container {
+  //   flex-grow: 1;
+  //   flex-basis: 0;
+  //   height: min-content;
+  //   padding: 0.5em 1em 0.3em 1em;
+  //   margin: 0 0.5em;
+  //   pointer-events: all;
+  //   z-index: 5;
+  //   color: var(--form-color);
+  //   border: 2px solid rgba(1, 1, 1, 0);
+  //   border-top: none;
+  //   border-radius: 0px 0px 3px 3px;
+  //   transition: 0.4s ease-out;
   &.focus {
-    background-color: var(--header-fill);
+    // background-color: var(--header-fill);
+    background-color: rgba(1, 1, 1, 0.4);
     backdrop-filter: blur(10px);
     border: 2px solid var(--header-color);
     border-top: none;
     // box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
     .Basket_Container {
       max-height: 700px;
+    }
+    .Guest_Header {
+      border-top: 1px solid rgb(255, 255, 255);
     }
   }
   .Guest_Header {
@@ -64,13 +89,15 @@
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-evenly;
-      font-size: 1.2em;
+      font-size: 1em;
       & > p {
         height: min-content;
-        padding: 0.5em;
+        padding: 0.3em 0;
       }
       .Guest_Number {
         cursor: pointer;
+        padding-top: 0.3em;
+        padding-bottom: 0;
       }
     }
   }
@@ -82,7 +109,7 @@
     overflow: hidden;
     transition: all 0.6s ease-out;
     & > :last-child {
-      padding-bottom: 0.8rem;
+      padding-bottom: 0.6rem;
     }
     & > :not(:first-child) {
       padding-top: 0.3em;
@@ -92,10 +119,13 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       cursor: default;
-      & p {
-        padding: 0 !important;
-        font-size: 0.9em;
+      & > p {
+        font-size: 0.7em;
+        padding: 0;
+        white-space: nowrap;
+        height: min-content;
       }
       .controls {
         position: relative;
@@ -105,6 +135,7 @@
         grid-template-columns: 3fr 1fr 3fr;
         width: 80px;
         & p {
+          padding: 0;
           width: 100%;
           text-align: center;
         }
@@ -112,26 +143,34 @@
           cursor: pointer;
         }
         .remove {
+          transform: translateY(-50%);
+          width: min-content;
           position: absolute;
-          left: -90%;
-          margin-top: 0.2em;
-          font-size: 0.6em;
-          opacity: 0;
+          left: -50%;
+          top: 50%;
+          font-size: 0.5em;
           transition: 0.2s ease-in-out;
         }
       }
-      &:hover .remove {
-        opacity: 1;
-        transition: 0.2s ease-in-out;
-      }
     }
     & > p {
-      font-size: 0.9em;
-      padding: 0 0 0.6rem 0;
+      padding-bottom: 0.8rem;
+      padding-top: 0;
+      font-size: 0.7em;
     }
   }
+  .tap {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    left: 50%;
+    height: 35px;
+    background-image: url("../assets/arrows.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    cursor: pointer;
+  }
 }
-
 //showing up full into about the guest table
 
 // @keyframes slidedown {

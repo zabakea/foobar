@@ -1,3 +1,6 @@
+* {
+  outline: 0;
+}
 .Guest_Form {
   overflow: hidden;
   height: 0;
@@ -8,34 +11,47 @@
   p {
     text-align: center;
   }
+  &.open {
+    height: 100%;
+  }
 }
 // .Guest_Container:hover > .Guest_Form {
 //   transition: height 0.5s ease-out;
 //   height: 100;
 // }
-
+.method {
+  font-size: 1em;
+  background-color: transparent;
+  color: white;
+}
 .Field {
   display: flex;
   flex-direction: column;
+  padding-top: 0.8em;
+  label {
+    font-size: 0.7em;
+    padding-left: 0.55em;
+    white-space: nowrap;
+  }
 }
 
 input {
   border: none;
   border-bottom: 1px solid var(--form-color);
   background-color: transparent;
-  margin: 5px;
-  padding: 5px;
+  margin: 0px 0;
+  padding: 0em 0.4em 0.4em 0.4em;
   color: var(--form-fill);
   font-family: $body-font;
 
   &:focus {
     outline: none;
-    border-radius: 2px;
-    border: 1px solid var(--form-color);
+    // border-radius: 2px;
+    // border: 1px solid var(--form-color);
   }
 
   &:not(:focus):not(:placeholder-shown):valid {
-    border: 1px solid var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
   }
 
   &:not(:focus):not(:placeholder-shown):invalid {
@@ -45,7 +61,46 @@ input {
 
 ::placeholder {
   color: var(--form-color);
-  opacity: 50%;
+  opacity: 40%;
+}
+.groupRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  & .Field {
+    width: 30%;
+    margin: 0;
+  }
+  .method {
+    border: none;
+    padding: 0;
+    height: min-content;
+    width: 30%;
+    margin-top: 1rem;
+  }
+}
+#or {
+  position: relative;
+  margin-top: 1rem;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 0.5px;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    top: 54%;
+    left: 50%;
+  }
+}
+.MobilePay {
+  height: 150px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../assets/mobilepay.png");
 }
 
 //Styling error messages

@@ -13,6 +13,7 @@ const Tablet = () => {
   const [prices, setPrices] = useState([]);
   const [theme, themeToggle] = useState(true);
   const [guest, setGuest] = useState(1);
+  const [form, setForm] = useState(null);
   const [baskets, setBaskets] = useState([[], [], [], []]);
   let beerPrice = prices.find((el) => el.name === beers[focus].beer);
   const handleAdding = (e) => {
@@ -141,9 +142,18 @@ const Tablet = () => {
       <Guests
         focusing={(e) => {
           let index = e.target.dataset.index;
-          // console.log(index);
           setGuest(index);
+          setForm(null);
         }}
+        formFocus={(e) => {
+          let index = e.target.dataset.index;
+          if (Number(form) === Number(index)) {
+            setForm(null);
+          } else {
+            setForm(index);
+          }
+        }}
+        form={form}
         guest={guest}
         baskets={baskets}
         onClick={handleAdding}
@@ -163,7 +173,6 @@ const Tablet = () => {
           className={`Theme_Toggle ${theme ? "Theme_Toggle_Moon" : "Theme_Toggle_Sun"}`}
           onClick={() => {
             themeToggle(!theme);
-            console.log(theme);
           }}
         ></button>
         <Order />
