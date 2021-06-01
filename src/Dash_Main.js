@@ -5,12 +5,13 @@ import TileQueue from "./TileQueue";
 import TileServing from "./TileServing";
 import TileBartenders from "./TileBartenders";
 import ChartsManager from "./ChartsManager";
+import CircleLoader from "react-spinners/CircleLoader";
 // import { useState } from "react";
 
 const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle }) => {
   if (data.length !== 0) {
     const mapQueue = data.queue.map((single) => {
-      return <TileQueue key={single.id} id={single.id} order={single.order} />;
+      return <TileQueue key={single.id} id={single.id} />;
     });
 
     const mapServing = data.serving.map((single) => {
@@ -27,21 +28,19 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
       return <TileBartenders key={workers.id} name={workers.name} status={workers.status} detail={workers.statusDetail} tap={workers.usingTap} />;
     });
 
-
     return (
       <div className="Dash_Main">
         <button className="Manager_Button" onClick={displayToggle}>
           Managers Panel
-            </button>
+        </button>
         <div className="Dashboard_Content">
           <Charts serving={data.serving} />
-          <div className="Waiting_Customers">{mapQueue}</div>
+          <div className="Waiting_Customers">
+            <Counter count={data.serving[0] === undefined ? 0 : data.serving[0].order.length} />
+            {mapQueue}
+          </div>
           <div className="Bartenders">{mapServing}</div>
-          <Counter count={data.serving[0] === undefined ? 0 : data.serving[0].order.length} />
         </div>
-
-
-
 
         <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
           <ChartsManager serving={data.serving} />
@@ -53,7 +52,11 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
       </div>
     );
   } else {
-    return <p>Loading</p>;
+    return (
+      <div className="Loader">
+        <CircleLoader color="#fff" size="150" />
+      </div>
+    );
   }
 };
 

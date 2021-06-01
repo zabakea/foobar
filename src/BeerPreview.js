@@ -26,7 +26,6 @@ const BeerPreview = ({ beers, prices, details, focus, onClick }) => {
         <ButtonPlus onClick={onClick} />
       </div>
       <div className="Beer_Desc">
-        <h1>Header</h1>
         <div className="Extra_Info">
           <p className="Alc">{beerDet.alc + "%"}</p>
           <p className="Category">{beerDet.category}</p>
