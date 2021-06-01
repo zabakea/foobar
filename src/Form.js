@@ -27,7 +27,7 @@ export function post(e) {
   //     .then((data) => console.log(data));
 }
 
-const Form = () => {
+const Form = ({ handlePayment, index }) => {
   function insertSpaces(e) {
     e.target.value = e.target.value
       .replace(/[^\dA-Z]/g, "")
@@ -41,21 +41,14 @@ const Form = () => {
       .trim();
   }
 
-  function manualValidate(e) {
+  function paying(e) {
     e.preventDefault();
-    console.log("ManualValidate");
-    //this function works only at the first form. there is a problem with choosing right field for validity
-    if (
-      document.querySelector("#cardnumber").checkValidity() &&
-      document.querySelector("#name").checkValidity() &&
-      document.querySelector("#expmonth").checkValidity() &&
-      document.querySelector("#expyear").checkValidity() &&
-      document.querySelector("#cvc").checkValidity()
-    ) {
-      post(e);
+    if (e.target.classList.contains("Card_Pay")) {
+      console.log("card pay");
     } else {
-      console.log("validation went wrong");
+      console.log("mobilepay");
     }
+    handlePayment(index);
   }
 
   return (
@@ -82,15 +75,33 @@ const Form = () => {
             <input type="text" id="cvc" title="cvc" placeholder="123" minLength="3" maxLength="3"></input>
             <span className="Error_CVC">CVC number should be 3 digits long. </span>
           </div>
-          <button className="method Card_Pay" onClick={manualValidate}>
+          {/* <button className="method Card_Pay" onClick={manualValidate}> */}
+          <button className="method Card_Pay" onClick={paying}>
             pay
           </button>
         </div>
       </form>
       <p id="or">or</p>
-      <button className="method MobilePay" onClick={post}></button>
+      <button className="method MobilePay" onClick={paying}></button>
     </>
   );
 };
 
 export default Form;
+
+// function manualValidate(e) {
+//   e.preventDefault();
+//   console.log("ManualValidate");
+//   //this function works only at the first form. there is a problem with choosing right field for validity
+//   if (
+//     document.querySelector("#cardnumber").checkValidity() &&
+//     document.querySelector("#name").checkValidity() &&
+//     document.querySelector("#expmonth").checkValidity() &&
+//     document.querySelector("#expyear").checkValidity() &&
+//     document.querySelector("#cvc").checkValidity()
+//   ) {
+//     post(e);
+//   } else {
+//     console.log("validation went wrong");
+//   }
+// }
