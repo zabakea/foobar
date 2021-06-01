@@ -41,7 +41,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
           </div>
         </div>
 
-        <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
+        <div className={`Manager_Content ${display ? "Flip" : "Display_None"}`}>
           <Charts serving={data.serving} />
           <div className="Manager_Workers">{mapWorkers}</div>
           <div className="Manager_Revenue">beers sold + revenuesome other statistics </div>

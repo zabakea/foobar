@@ -160,11 +160,13 @@
 
 .Dash_Footer {
   grid-area: dash_footer;
+  pointer-events: none;
 
   .Image_Box {
     align-self: flex-start;
     transform: translate(0, 5em);
     text-align: center;
+    pointer-events: none;
 
     &:hover {
       animation: slidedown 0.5s forwards;

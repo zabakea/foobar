@@ -77,7 +77,7 @@ const DashFooter = ({ display, data }) => {
       </div>
     );
   } else {
-    return <p>Loading...</p>;
+    return "";
   }
 };
 export default DashFooter;
