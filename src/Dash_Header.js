@@ -20,7 +20,7 @@ const DashHeader = ({ display, data }) => {
     return (
       <div className="Dash_Header">
         <div className={`Image_Box`}>
-          <img className={`${display ? "Stock" : ""} ${displayStock("Movintime") === "finished!" ? `Unavail` : ""}`} src={Images[Object.keys(Images)[5]]} alt="" />
+          <img className={`${display ? "Stock" : ""} ${displayStock("Mowintime") === "finished!" ? `Unavail` : ""}`} src={Images[Object.keys(Images)[5]]} alt="" />
           {display ? (
             <div className="Stock_Text">
               <p>Mowintime</p>
