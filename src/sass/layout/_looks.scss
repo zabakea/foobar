@@ -119,3 +119,10 @@ p {
   font-size: 0.9vw;
   white-space: nowrap;
 }
+
+.ChartsManager canvas {
+  width: 300px !important;
+  height: 300px !important;
+  margin: auto;
+  color: white !important;
+}

@@ -204,6 +204,8 @@
 .Dashboard_Content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 5em;
+  padding-left: 5em;
   column-gap: 1em;
   position: absolute;
   top: 50%;
@@ -229,6 +231,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 1em;
   padding: 0em 1em;
+  margin-left: 4em;
 
   & > * {
     text-align: center;

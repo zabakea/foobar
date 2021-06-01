@@ -1,11 +1,11 @@
 import React from 'react';
-import { Pie } from 'react-chartjs-2';
+import { Pie, Bar } from 'react-chartjs-2';
 // import { useState, useEffect } from "react";
 
 
 
 
-const Charts = ({ serving }) => {
+const ChartsManager = ({ serving }) => {
     //mapping through servings
     const mapOrders = serving.map((singleOrder) => singleOrder.order);
     var mergedOrders = [].concat.apply([], mapOrders);
@@ -38,6 +38,8 @@ const Charts = ({ serving }) => {
                     '#35014F'
                 ],
                 borderColor: '#bb98ef',
+                fontColor: "#ffffff",
+                fontSize: 20,
                 data: Object.values(counts)
             }
         ]
@@ -47,25 +49,26 @@ const Charts = ({ serving }) => {
 
 
     return (
-        <div className="Charts">
+        <div className="ChartsManager">
             <p>BEERS BEING SERVED AT THE MOMENT</p>
-            <Pie className="Pie"
+
+
+            <Bar
                 data={state}
                 options={{
                     title: {
                         display: true,
-                        text: 'Beers serving at the moment',
-                        fontSize: 20,
+                        text: 'Average Rainfall per month',
+                        fontSize: 20
                     },
                     legend: {
                         display: true,
-                        position: 'right',
-                    },
-                    responsive: true,
+                        position: 'right'
+                    }
                 }}
             />
         </div>
     );
 };
 
-export default Charts;
+export default ChartsManager;
