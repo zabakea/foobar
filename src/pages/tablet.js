@@ -2,6 +2,7 @@ import Order from "../Order";
 import BeerPreview from "../BeerPreview";
 import BeerList from "../BeerList";
 import Guests from "../Guests";
+import ThemeToggle from "../ThemeToggle";
 // import "../sass/main.scss";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -97,6 +98,12 @@ const Tablet = () => {
     };
   }, []);
 
+  //         });
+  //     return function cleaup() {
+  //         abortController.abort();
+  //     };
+  // }, []);
+
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
@@ -134,8 +141,6 @@ const Tablet = () => {
 
   // console.log(prices);
   // console.log(types);
-
-  //changing themes
 
   return (
     <div className={`Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`}>

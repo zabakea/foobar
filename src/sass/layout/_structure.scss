@@ -249,3 +249,144 @@
   justify-items: start;
   position: relative;
 }
+
+//This part is for dashboard - styling for Header and Footer
+
+.Dash_Grid_Container {
+  max-height: 100vh;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 15vh 70vh 15vh;
+  align-items: center;
+  grid-template-areas:
+    "dash_header"
+    "dash_main"
+    "dash_footer";
+  margin: 0em 2em;
+}
+
+.Dash_Header {
+  grid-area: dash_header;
+  pointer-events: none;
+
+  .Image_Box {
+    align-self: flex-end;
+    transform: translate(0, -5em);
+    pointer-events: all;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+      animation: slidedown 0.5s forwards;
+    }
+    .Stock_Text {
+      bottom: 0.5em;
+    }
+  }
+}
+
+.Dash_Main {
+  grid-area: dash_main;
+  overflow: hidden;
+  height: 100%;
+
+  & > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.Dash_Footer {
+  grid-area: dash_footer;
+  pointer-events: none;
+
+  .Image_Box {
+    align-self: flex-start;
+    transform: translate(0, 5em);
+    text-align: center;
+    pointer-events: none;
+
+    &:hover {
+      animation: slidedown 0.5s forwards;
+    }
+
+    .Stock_Text {
+      top: 0;
+    }
+  }
+}
+
+.Dash_Header,
+.Dash_Footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  gap: 1em;
+  max-height: 200px;
+  z-index: 5;
+
+  .Image_Box {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 12%;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  }
+}
+
+//Styling for Dash_Main and Manager's panel
+
+.Dashboard_Content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 5em;
+  padding-left: 5em;
+  column-gap: 1em;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  & > * {
+    // border: 1px solid white;
+    text-align: center;
+  }
+  // & > *:not(:last-child) {
+  //   border-right: 1px solid white;
+  // }
+}
+
+.Manager_Content {
+  transform: translate(0, 0);
+  position: static;
+  height: 70vh;
+  border: 1px solid var(--header-color);
+  border-radius: 5px;
+  background-color: var(--header-fill);
+  backdrop-filter: blur(5px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1em;
+  padding: 0em 1em;
+  margin-left: 4em;
+
+  & > * {
+    text-align: center;
+  }
+}
+
+//Keyframes
+
+@keyframes slidedown {
+  0% {
+    // transform: translate(0, -5em);
+    // border: 0px solid $header-color;
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

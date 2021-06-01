@@ -12,8 +12,8 @@
   --d-invalid-accent-color: #ab2346;
 
   //icons
-  --theme-icon-moon: url("../assets/moon.svg");
-  --theme-icon-sun: url("../assets/sun.svg");
+  --theme-icon-moon: url("../../images/moon.svg");
+  --theme-icon-sun: url("../../images/sun.svg");
 
   //bright variables
   --l-bg-color: #ffffff;
@@ -37,8 +37,8 @@
   --accent-color: var(--d-accent-color);
   --accent-fill: var(--d-accent-fill);
   --invalid-accent-color: var(--d-invalid-accent-color);
-  --theme-icon-moon: url("../assets/moon.svg");
-  --theme-icon-sun: url("../assets/sun.svg");
+  --theme-icon-moon: url("../../images/moon.svg");
+  --theme-icon-sun: url("../../images/sun.svg");
 }
 
 .Light_Theme {
@@ -51,6 +51,6 @@
   --accent-color: var(--l-accent-color);
   --accent-fill: var(--l-accent-fill);
   --invalid-accent-color: var(--l-invalid-accent-color);
-  --theme-icon-moon: url("../assets/moon.svg");
-  --theme-icon-sun: url("../assets/sun.svg");
+  --theme-icon-moon: url("../../images/moon.svg");
+  --theme-icon-sun: url("../../images/sun.svg");
 }
