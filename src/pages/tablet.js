@@ -16,8 +16,12 @@ const Tablet = () => {
   const [guest, setGuest] = useState(1);
   const [form, setForm] = useState(null);
   const [baskets, setBaskets] = useState([[], [], [], []]);
+  const [payments, setPayments] = useState([]);
   let beerPrice = prices.find((el) => el.name === beers[focus].beer);
   const handleAdding = (e) => {
+    if (payments.includes(Number(guest))) {
+      return;
+    }
     function createNew(name, amount, price) {
       return {
         name,
@@ -74,6 +78,16 @@ const Tablet = () => {
       let cleanedUp = newBasket.filter((el) => (el.amount > 0 ? el : null));
       New[guest - 1] = cleanedUp;
       return New;
+    });
+  };
+
+  const handlePayment = (index) => {
+    setPayments((prev) => {
+      if (prev.includes(index)) {
+        return prev;
+      } else {
+        return [...prev, index];
+      }
     });
   };
   useEffect(() => {
@@ -149,7 +163,13 @@ const Tablet = () => {
         focusing={(e) => {
           let index = e.target.dataset.index;
           setGuest(index);
-          setForm(null);
+          setForm(() => {
+            if (payments.includes(Number(guest))) {
+              return guest;
+            } else {
+              return null;
+            }
+          });
         }}
         formFocus={(e) => {
           let index = e.target.dataset.index;
@@ -162,7 +182,9 @@ const Tablet = () => {
         form={form}
         guest={guest}
         baskets={baskets}
-        onClick={handleAdding}
+        handleAdding={handleAdding}
+        handlePayment={handlePayment}
+        payments={payments}
       />
       <div className="Main_Content">
         <BeerList

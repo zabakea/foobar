@@ -4,7 +4,7 @@
 .Guest_Form {
   overflow: hidden;
   height: 0;
-  transition: height 0.5s ease-out;
+  // transition: height 0.5s ease-out;
   &.open {
     height: 100%;
   }
@@ -14,7 +14,11 @@
   &.open {
     height: 100%;
   }
+  form:first-child {
+    margin-top: 0.7em;
+  }
 }
+
 // .Guest_Container:hover > .Guest_Form {
 //   transition: height 0.5s ease-out;
 //   height: 100;
@@ -86,11 +90,12 @@ input {
   &::after {
     content: "";
     position: absolute;
-    width: 50%;
+    width: 90%;
     height: 0.5px;
     background-color: var(--form-color);
     opacity: 0.2;
     transform: translate(-50%, -50%);
+    opacity: 0.3;
     top: 54%;
     left: 50%;
   }
@@ -102,6 +107,15 @@ input {
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("../assets/mobilepay.png");
+}
+.paid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    -webkit-text-stroke: transparent;
+    margin-top: 0.4em;
+  }
 }
 
 //Styling error messages

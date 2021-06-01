@@ -1,6 +1,6 @@
 import Form from "./Form";
 
-const GuestContainer = ({ index, focusing, guest, basket, onClick, formFocus, form }) => {
+const GuestContainer = ({ index, focusing, guest, basket, handleAdding, handlePayment, payments, formFocus, form }) => {
   // console.log(basket);
   // console.log(basket.length === 0 ? "true" : "false");
   function summing(basket) {
@@ -11,23 +11,23 @@ const GuestContainer = ({ index, focusing, guest, basket, onClick, formFocus, fo
     return result;
   }
   return (
-    <div className={`Guest_Container ${Number(guest) === index ? "focus" : ""}`}>
+    <div className={`Guest_Container ${Number(guest) === index ? "focus" : ""} ${payments.includes(index) ? "paid" : ""}`}>
       <div className="Basket_Container">
         {basket.length > 0 ? (
           basket.map((e, conInd) => {
             return (
-              <div key={e.name} className="Basket_Item">
-                <p>{e.name}</p>
+              <div key={e.name} className={`Basket_Item ${payments.includes(index) ? "disable" : ""}`}>
+                <p className="highOp">{e.name}</p>
 
                 <div className="controls" data-index={conInd}>
-                  <p data-act="-" onClick={onClick}>
+                  <p data-act="-" onClick={handleAdding}>
                     -
                   </p>
-                  <p className="amount">{e.amount}</p>
-                  <p data-act="+" onClick={onClick}>
+                  <p className="amount highOp">{e.amount}</p>
+                  <p data-act="+" onClick={handleAdding}>
                     +
                   </p>
-                  <p className="remove" data-act="rm" onClick={onClick}>
+                  <p className="remove" data-act="rm" onClick={handleAdding}>
                     remove
                   </p>
                 </div>
@@ -41,14 +41,23 @@ const GuestContainer = ({ index, focusing, guest, basket, onClick, formFocus, fo
       <div className="Guest_Header" onClick={focusing} data-index={index}>
         <div className="Basket_Total" style={basket.length > 0 ? { justifyContent: "space-between" } : { justifyContent: "space-evenly" }}>
           <p className="Guest_Number">{"Guest " + index}</p>
-          {basket.length > 0 ? <p className="Guest_Total_Amount">{`${summing(basket)},-`}</p> : null}
+          {basket.length > 0 ? <p className="Guest_Total_Amount">{`${payments.includes(index) ? "paid" : ""} ${summing(basket)},-`}</p> : null}
         </div>
       </div>
-      <div className={`Guest_Form ${Number(form) === Number(index) && Number(guest) === Number(index) && basket.length > 0 ? "open" : ""}`}>
-        <Form />
+
+      <div className={`Guest_Form ${(Number(form) === Number(index) && Number(guest) === Number(index) && basket.length > 0) || (payments.includes(index) && Number(guest) === Number(index)) ? "open" : ""}`}>
+        {payments.includes(index) ? (
+          <div className="paid">
+            <h1>cheers!</h1>
+            <p>pay other orders to get beers</p>
+          </div>
+        ) : (
+          <Form handlePayment={handlePayment} index={index} />
+        )}
       </div>
-      {Number(guest) === index && basket.length > 0 ? (
-        <p className="tap" onClick={formFocus} data-index={index}>
+
+      {Number(guest) === index && basket.length > 0 && !payments.includes(index) ? (
+        <p className={`tap ${Number(form) === index ? "close" : ""}`} onClick={formFocus} data-index={index}>
           {Number(form) === index ? "close" : "tap to pay"}
         </p>
       ) : null}
