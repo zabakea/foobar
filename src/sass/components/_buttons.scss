@@ -113,24 +113,27 @@
   border-radius: 5px;
   border: 1px solid var(--header-color);
   padding: 0.5em 1em;
-
+  position: absolute;
+  top: 50%;
+  transform: rotate(270deg) scale(1.5);
+  left: -2em;
   &:active {
     background-color: var(--accent-color);
   }
 }
 
-.Manager_Close {
-  background: none;
-  color: var(--header-color);
-  border: none;
-  font-size: 2em;
-  font-family: $body-font;
-  position: absolute;
-  margin: 0.1em 0.5em;
-  top: 0;
-  right: 0;
+// .Manager_Close {
+//   background: none;
+//   color: var(--header-color);
+//   border: none;
+//   font-size: 2em;
+//   font-family: $body-font;
+//   position: absolute;
+//   margin: 0.1em 0.5em;
+//   top: 0;
+//   right: 0;
 
-  &:active {
-    color: var(--accent-color);
-  }
-}
+//   &:active {
+//     color: var(--accent-color);
+//   }
+// }
