@@ -144,7 +144,7 @@ const Tablet = () => {
 
   return (
     <div className={`Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`}>
-      <img src="foobar/src/images/grid.svg" />
+      <div className="Position_Grid" />
       <Guests
         focusing={(e) => {
           let index = e.target.dataset.index;
