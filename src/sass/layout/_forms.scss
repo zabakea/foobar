@@ -22,7 +22,7 @@
 .method {
   font-size: 1em;
   background-color: transparent;
-  color: white;
+  color: var(--form-color);
 }
 .Field {
   display: flex;
@@ -88,7 +88,8 @@ input {
     position: absolute;
     width: 50%;
     height: 0.5px;
-    background-color: white;
+    background-color: var(--form-color);
+    opacity: 0.2;
     transform: translate(-50%, -50%);
     top: 54%;
     left: 50%;
