@@ -29,11 +29,11 @@ img {
 
 .Image_Container:hover .Amount_Block {
   display: block;
-  background: rgba(0, 0, 0, 0.6);
+  // background: rgba(0, 0, 0, 0.6);
 }
 
 .Image_Container:hover .Animated_Amount {
-  animation: jumpup 1s cubic-bezier(0.49, -0.08, 0.9, 1.42) 0.2s 1 forwards;
+  animation: jumpup 1s cubic-bezier(0.49, -0.08, 0.9, 1.42) 1 forwards;
 }
 
 .Amount_Block {

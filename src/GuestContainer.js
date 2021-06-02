@@ -9,7 +9,6 @@ const GuestContainer = ({ index, focusing, guest, basket, handleAdding, handlePa
     return result;
   }
   let missing = filled.filter((el) => !payments.includes(el));
-  console.log(filled, payments);
   return (
     <div className={`Guest_Container ${Number(guest) === index ? "focus" : ""} ${payments.includes(index) ? "paid" : ""}`}>
       <div className="Basket_Container">
@@ -50,9 +49,9 @@ const GuestContainer = ({ index, focusing, guest, basket, handleAdding, handlePa
           <div className="paid">
             <h1>cheers!</h1>
             {filled.length === payments.length ? (
-              <p>{`you can place an order now${payments.length === 4 ? "." : ` or ${4 - filled.length} more guest${filled.length > 1 ? "s" : ""} can add beers`}`}</p>
+              <p>{`you can place an order now${payments.length === 4 ? "." : ` or ${4 - filled.length} more guest${filled.length < 3 ? "s" : ""} can add beers!`}`}</p>
             ) : (
-              <p>{`Guest ${missing} need to pay before placing an order`}</p>
+              <p>{`Guest ${missing} need to pay before placing an order.`}</p>
             )}
           </div>
         ) : (

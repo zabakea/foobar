@@ -14,8 +14,8 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
       return <TileQueue key={single.id} id={single.id} />;
     });
 
-    const mapServing = data.serving.map((single) => {
-      const mapServer = data.bartenders.map((barnames) => {
+    const mapServing = data.serving.forEach((single) => {
+      const mapServer = data.bartenders.forEach((barnames) => {
         if (Object.values(barnames).includes(single.id)) {
           return barnames.name;
         }
