@@ -17,10 +17,11 @@ const TileBartenders = ({ name, status, detail, tap }) => {
     <div className="Tile_Bartenders">
       <h2>{name}</h2>
       <p>
-        is currently {status}. He is {detail}
+        is currently {status}.</p>
+      <p>He is {detail}
         {tap === null ? ".." : " from the tap "}
-        {tap}.
-      </p>
+        {tap}.</p>
+
     </div>
   );
 };

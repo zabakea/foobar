@@ -121,8 +121,17 @@ p {
 }
 
 .ChartsManager canvas {
-  width: 300px !important;
-  height: 300px !important;
   margin: auto;
-  color: white !important;
+}
+
+.Tile_Bartenders {
+  border-radius: 5px;
+  border: 1px solid var(--header-color);
+  background-color: var(--header-fill);
+  backdrop-filter: blur(5px);
+  padding-bottom: 1em;
+  margin-bottom: 16px;
+  p {
+    padding: 0;
+  }
 }

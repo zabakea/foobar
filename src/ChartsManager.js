@@ -20,51 +20,37 @@ const ChartsManager = ({ serving }) => {
         labels: Object.keys(counts),
         datasets: [
             {
-                label: 'Beers',
-                backgroundColor: [
-                    '#B14A5A',
-                    '#CC7E8C',
-                    '#54383C',
-                    '#00A6B4',
-                    '#6800B4',
-                    '#35014F',
-                    '#003350'
-                ],
-                hoverBackgroundColor: [
-                    '#501800',
-                    '#4B5000',
-                    '#175000',
-                    '#003350',
-                    '#35014F'
-                ],
-                borderColor: '#bb98ef',
-                fontColor: "#ffffff",
-                fontSize: 20,
-                data: Object.values(counts)
-            }
-        ]
+                label: "Beers",
+                backgroundColor: ["rgba(187, 152, 239, 0.4)", "rgba(193, 174, 159, 0.4)", "rgba(137, 147, 124, 0.4)", "rgba(113, 91, 100, 0.4)", "rgba(105, 56, 92, 0.4)", "rgba(255, 166, 134, 0.4)", "rgba(0, 166, 166, 0.4"],
+                hoverBackgroundColor: ["rgba(187, 152, 239)", "rgba(193, 174, 159)", "rgba(137, 147, 124)", "rgba(113, 91, 100)", "rgba(105, 56, 92)"],
+                borderColor: "#bb98ef",
+                data: Object.values(counts),
+            },
+        ],
     };
 
 
 
 
     return (
-        <div className="ChartsManager">
-            <p>BEERS BEING SERVED AT THE MOMENT</p>
-
-
+        <div className="Charts">
+            <p>Served right now</p>
             <Bar
+                className="Pie"
                 data={state}
                 options={{
+                    responsive: true,
                     title: {
                         display: true,
-                        text: 'Average Rainfall per month',
-                        fontSize: 20
+                        text: "Beers serving at the moment",
                     },
                     legend: {
                         display: true,
-                        position: 'right'
-                    }
+                        position: "bottom",
+                        labels: {
+                            fontSize: 40,
+                        }
+                    },
                 }}
             />
         </div>

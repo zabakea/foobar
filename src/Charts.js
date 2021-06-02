@@ -6,13 +6,13 @@ const Charts = ({ serving }) => {
     //mapping through servings
     const mapOrders = serving.map((singleOrder) => singleOrder.order);
     var mergedOrders = [].concat.apply([], mapOrders);
-    console.log(mergedOrders);
+    // console.log(mergedOrders);
     // counting duplicate entries
     var counts = {};
     mergedOrders.forEach(function (x) {
         counts[x] = (counts[x] || 0) + 1;
     });
-    console.log(counts);
+    // console.log(counts);
 
     const state = {
         labels: Object.keys(counts),
@@ -34,6 +34,7 @@ const Charts = ({ serving }) => {
                 className="Pie"
                 data={state}
                 options={{
+                    responsive: true,
                     title: {
                         display: true,
                         text: "Beers serving at the moment",
@@ -41,7 +42,7 @@ const Charts = ({ serving }) => {
                     },
                     legend: {
                         display: true,
-                        position: "right",
+                        position: "bottom",
                     },
                 }}
             />

@@ -5,6 +5,7 @@ import TileQueue from "./TileQueue";
 import TileServing from "./TileServing";
 import TileBartenders from "./TileBartenders";
 import ChartsManager from "./ChartsManager";
+import ManagerRevenue from "./ManagerRevenue";
 // import { useState } from "react";
 
 const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle }) => {
@@ -46,8 +47,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
         <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
           <ChartsManager serving={data.serving} />
           <div className="Manager_Workers">{mapWorkers}</div>
-          <div className="Manager_Revenue">beers sold + revenuesome other statistics </div>
-
+          <ManagerRevenue serving={data.serving} />
           <ThemeToggle Click={themeToggler} theme={theme} />
         </div>
       </div>
