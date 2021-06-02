@@ -2,10 +2,6 @@
 
 body {
   background-color: var(--bg-color);
-  background-image: url("../../images/bg.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   color: var(--form-color);
   font-family: $body-font;
   max-height: 100vh;
@@ -75,13 +71,13 @@ p {
 
 .Tile_Queue,
 .Tile_Serving {
-  margin: 1em 1em 1em 0;
+  margin: 0.5em;
   padding: 0.5em;
-  text-align: right;
+  text-align: center;
 
   p {
     padding: 0;
-    padding-bottom: 10px;
+    padding-bottom: 3px;
   }
 }
 
@@ -134,4 +130,27 @@ p {
   p {
     padding: 0;
   }
+}
+
+//loader on dashboard
+
+.Loader {
+  position: absolute;
+  left: 45%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.Position_Grid {
+  background-image: url("../../images/grid.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  pointer-events: none;
+  width: 100%;
+  height: 35vh;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  opacity: 0.2;
 }

@@ -3,7 +3,7 @@ import Pages from "./pages/index";
 
 function App() {
   return (
-    <div style={{ height: "100vh" }}>
+    <div className="Wrapper">
       <Pages />
     </div>
   );

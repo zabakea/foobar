@@ -32,8 +32,8 @@
   height: 200px;
   perspective: 1000px;
   z-index: 5;
-  display: inline-block;
   position: absolute;
+  left: 43%;
 }
 
 /* This container is needed to position the front and back side */
@@ -94,6 +94,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  position: absolute;
+  right: 2em;
 }
 
 .Theme_Toggle_Sun {
