@@ -9,7 +9,7 @@ import ManagerRevenue from "./ManagerRevenue";
 import CircleLoader from "react-spinners/CircleLoader";
 // import { useState } from "react";
 
-const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle }) => {
+const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle, prices }) => {
   if (data.length !== 0) {
     const mapQueue = data.queue.slice(0, 5).map((single) => {
       // if (data.queue.length <= 5) {
@@ -56,7 +56,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
         <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
           <ChartsManager serving={data.serving} />
           <div className="Manager_Workers">{mapWorkers}</div>
-          <ManagerRevenue serving={data.serving} />
+          <ManagerRevenue taps={data.taps} prices={prices} />
           <ThemeToggle Click={themeToggler} theme={theme} />
         </div>
       </div>

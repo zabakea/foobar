@@ -2,7 +2,7 @@ const TileQueue = ({ id, order }) => {
   // order = order.join(", ");
 
   const orders = order;
-  console.log(orders);
+
 
   var counts = {};
   orders.forEach(function (x) {

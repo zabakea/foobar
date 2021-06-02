@@ -1,6 +1,6 @@
 const TileServing = ({ id, order, name }) => {
   const orders = order;
-  console.log(orders);
+
 
   var counts = {};
   orders.forEach(function (x) {

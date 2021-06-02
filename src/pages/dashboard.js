@@ -13,6 +13,7 @@ const Dashboard = () => {
   const [queue, setQueue] = useState([]);
   const [beerTypes, setBeerTypes] = useState([]);
   const [display, displayToggle] = useState(false);
+  const [prices, setPrices] = useState([]);
 
   useEffect(() => {
     setInterval(() => {
@@ -46,6 +47,27 @@ const Dashboard = () => {
   if (queue !== []) {
   }
 
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    fetch("https://videogames-20c7.restdb.io/rest/foobar", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": "6074094df592f7113340efe3",
+        "cache-control": "no-cache",
+      },
+      signal: signal,
+    })
+      .then((resPrice) => resPrice.json())
+      .then((data) => {
+        setPrices(data);
+      });
+    return function cleaup() {
+      abortController.abort();
+    };
+  }, []);
+
   const [theme, themeToggle] = useState(true);
 
   return (
@@ -60,6 +82,7 @@ const Dashboard = () => {
         theme={theme}
         beerTypes={beerTypes}
         display={display}
+        prices={prices}
         displayToggle={() => {
           displayToggle(!display);
           console.log(display);

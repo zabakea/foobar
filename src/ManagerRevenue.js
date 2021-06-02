@@ -1,18 +1,34 @@
 import React from "react";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const ManagerRevenue = ({ serving }) => {
 
-    //mapping through servings
-    const mapOrders = serving.map((singleOrder) => singleOrder.order);
-    var mergedOrders = [].concat.apply([], mapOrders);
-    // console.log(mergedOrders);
-    // counting duplicate entries
-    var counts = {};
-    mergedOrders.forEach(function (x) {
-        counts[x] = (counts[x] || 0) + 1;
+
+const ManagerRevenue = ({ taps, prices }) => {
+
+
+
+    const mapLevels = taps.map((level) => {
+
+        const mapPrices = prices.map((price) => {
+            if (level.beer === price.name) {
+                const beersSold = (2500 - level.level) / 50;
+                console.log(beersSold);
+                // var mergedOrders = [].concat.apply([], mapOrders);
+                return beersSold;
+
+            }
+        });
+
     });
-    // console.log(counts);
+
+
+
+
+
+
+
+
+
 
 
 
