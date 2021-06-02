@@ -6,7 +6,7 @@ const Counter = (count) => {
   useInterval(() => {
     setSum(sum + count.count);
   }, count.count * 5000);
-  console.log(sum);
+  // console.log(sum);
 
   return (
     <div className="Counter">

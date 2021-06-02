@@ -3,20 +3,16 @@ import React from "react";
 
 const ManagerRevenue = ({ serving }) => {
 
-
-
-
-
     //mapping through servings
     const mapOrders = serving.map((singleOrder) => singleOrder.order);
     var mergedOrders = [].concat.apply([], mapOrders);
-    console.log(mergedOrders);
+    // console.log(mergedOrders);
     // counting duplicate entries
     var counts = {};
     mergedOrders.forEach(function (x) {
         counts[x] = (counts[x] || 0) + 1;
     });
-    console.log(counts);
+    // console.log(counts);
 
 
 

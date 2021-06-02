@@ -9,10 +9,10 @@ const DashFooter = ({ display, data }) => {
     function displayStock(string) {
       var found = level.find((name) => name.beer === string);
       if (found) {
-        console.log(found.beer + " found");
+        // console.log(found.beer + " found");
         return found.level + "/2500";
       } else {
-        console.log(string + " not found");
+        // console.log(string + " not found");
         return "finished!";
       }
     }
