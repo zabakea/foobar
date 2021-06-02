@@ -2,6 +2,7 @@ import Order from "../Order";
 import BeerPreview from "../BeerPreview";
 import BeerList from "../BeerList";
 import Guests from "../Guests";
+import LiveChat from "../LiveChat";
 import { useEffect, useState } from "react";
 import React from "react";
 
@@ -15,9 +16,15 @@ const Tablet = () => {
   const [form, setForm] = useState(null);
   const [baskets, setBaskets] = useState([[], [], [], []]);
   const [payments, setPayments] = useState([]);
+  const [orders, setOrders] = useState([]);
   let beerPrice = prices.find((el) => el.name === beers[focus].beer);
   let filled = baskets.filter((el) => el.length > 0).map((el) => baskets.indexOf(el) + 1);
   let missing = filled.filter((el) => !payments.includes(el));
+  useEffect(() => {
+    if (baskets[guest - 1].length === 0) {
+      setForm(null);
+    }
+  }, [baskets, guest]);
   const handleAdding = (e) => {
     if (payments.includes(Number(guest))) {
       return;
@@ -122,6 +129,7 @@ const Tablet = () => {
           setGuest(1);
           setPayments([]);
           setForm(null);
+          setOrders((prev) => [...prev, data.id]);
           console.log(data);
         });
     } else {
@@ -234,7 +242,8 @@ const Tablet = () => {
             themeToggle(!theme);
           }}
         ></button>
-        <Order handlePosting={handlePosting} missing={missing} filled={filled} payments={payments} />
+        <Order handlePosting={handlePosting} orders={orders} missing={missing} filled={filled} payments={payments} />
+        <LiveChat />
       </div>
     </div>
   );

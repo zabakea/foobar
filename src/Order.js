@@ -1,4 +1,4 @@
-const Order = ({ handlePosting, missing, filled, payments }) => {
+const Order = ({ handlePosting, orders, missing, filled, payments }) => {
   return (
     // <div className="Order">
     //   <div className={`Inner_Order ${payments.length > 0 ? "" : "flipped"}`}>
@@ -18,7 +18,13 @@ const Order = ({ handlePosting, missing, filled, payments }) => {
     //   </div>
     // </div>
     <div className="Order">
-      <h1 className="orderNumber">128</h1>
+      {orders.length > 0
+        ? orders.map((order) => (
+            <h1 key={order} className="orderNumber">
+              {order}
+            </h1>
+          ))
+        : ""}
       <button className={`PlaceOrderButton ${missing.length > 0 || filled.length === 0 ? "disable" : ""} ${payments.length > 0 ? "" : "flipped"}`} onClick={handlePosting}>
         Place Order
       </button>

@@ -16,19 +16,7 @@ const Form = ({ handlePayment, index }) => {
 
   function paying(e) {
     e.preventDefault();
-    // if (e.target.classList.contains("Card_Pay")) {
-    //   console.log("card pay");
-    // } else {
-    //   console.log("mobilepay");
-    // }
     handlePayment(index);
-  }
-  function validateName(e) {
-    if (e.target.value.length > 0) {
-      console.log("valid");
-    } else {
-      console.log("not");
-    }
   }
 
   return (
@@ -37,11 +25,11 @@ const Form = ({ handlePayment, index }) => {
         <div className="Field">
           <label htmlFor="cardnumber">card number</label>
           <input type="text" id="cardnumber" title="cardname" minLength="19" maxLength="19" placeholder="1234 1234 1234 1234" onChange={insertSpaces}></input>
-          <span className="Error_Cardnumber">minimum of 16 digits</span>
+          <span className="Error_Cardnumber">must be 16 digits</span>
         </div>
         <div className="Field">
           <label htmlFor="name">owner</label>
-          <input type="text" id="name" title="name" placeholder="John Doe" onBlur={validateName}></input>
+          <input type="text" id="name" title="name" placeholder="John Doe"></input>
         </div>
         <div className="groupRow">
           <div className="Field">
