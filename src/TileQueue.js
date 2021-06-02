@@ -1,7 +1,5 @@
-
 const TileQueue = ({ id, order }) => {
   // order = order.join(", ");
-
 
   const orders = order;
   console.log(orders);
@@ -25,7 +23,9 @@ const TileQueue = ({ id, order }) => {
       <p>
         <b>Order no. {id}</b>
       </p>
-      <p>{Object.entries(counts).toString()}</p>
+      {Object.entries(counts).map(([key, value], index) => {
+        return <p key={index}>{`${key} ${value}`}</p>;
+      })}
     </div>
   );
 };
