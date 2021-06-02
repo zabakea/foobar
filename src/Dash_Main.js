@@ -39,6 +39,8 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
           Managers Panel
         </button>
 
+
+
         <div className="Dashboard_Content">
           <Charts serving={data.serving} />
           <div className="Waiting_Customers">
@@ -48,6 +50,8 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
           <div className="Bartenders">{mapServing}</div>
           <Counter count={data.serving[0] === undefined ? 0 : data.serving[0].order.length} />
         </div>
+
+
 
         <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
           <ChartsManager serving={data.serving} />
