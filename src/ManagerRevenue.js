@@ -2,6 +2,11 @@ import React from "react";
 // import { useState, useEffect } from "react";
 
 const ManagerRevenue = ({ serving }) => {
+
+
+
+
+
     //mapping through servings
     const mapOrders = serving.map((singleOrder) => singleOrder.order);
     var mergedOrders = [].concat.apply([], mapOrders);
