@@ -90,6 +90,11 @@ const Tablet = () => {
       }
     });
   };
+
+  const handlePosting = () => {
+    // let filled = baskets.filter((el) => el.length > 0).map((el) => baskets.indexOf(el) + 1);
+    // console.log(filled, payments);
+  };
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
@@ -155,7 +160,7 @@ const Tablet = () => {
 
   // console.log(prices);
   // console.log(types);
-
+  let filled = baskets.filter((el) => el.length > 0).map((el) => baskets.indexOf(el) + 1);
   return (
     <div className={`Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`}>
       <div className="Position_Grid" />
@@ -185,6 +190,7 @@ const Tablet = () => {
         handleAdding={handleAdding}
         handlePayment={handlePayment}
         payments={payments}
+        filled={filled}
       />
       <div className="Main_Content">
         <BeerList
@@ -203,7 +209,7 @@ const Tablet = () => {
             themeToggle(!theme);
           }}
         ></button>
-        <Order />
+        <Order handlePosting={handlePosting} />
       </div>
     </div>
   );

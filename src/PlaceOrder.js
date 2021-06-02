@@ -1,10 +1,11 @@
+const PlaceOrder = ({ handlePosting }) => {
+  return (
+    <div className="PlaceOrder">
+      <button className="PlaceOrderButton" onClick={handlePosting}>
+        Place Order
+      </button>
+    </div>
+  );
+};
 
-export default function PlaceOrder() {
-
-    return (
-        <div className="PlaceOrder">
-            <button className="PlaceOrderButton">Place Order</button>
-        </div>
-    )
-
-}
+export default PlaceOrder;

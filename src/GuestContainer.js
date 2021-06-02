@@ -1,8 +1,6 @@
 import Form from "./Form";
 
-const GuestContainer = ({ index, focusing, guest, basket, handleAdding, handlePayment, payments, formFocus, form }) => {
-  // console.log(basket);
-  // console.log(basket.length === 0 ? "true" : "false");
+const GuestContainer = ({ index, focusing, guest, basket, handleAdding, handlePayment, payments, formFocus, form, filled }) => {
   function summing(basket) {
     let result = 0;
     basket.forEach((beer) => {
@@ -10,6 +8,8 @@ const GuestContainer = ({ index, focusing, guest, basket, handleAdding, handlePa
     });
     return result;
   }
+  let missing = filled.filter((el) => !payments.includes(el));
+  console.log(filled, payments);
   return (
     <div className={`Guest_Container ${Number(guest) === index ? "focus" : ""} ${payments.includes(index) ? "paid" : ""}`}>
       <div className="Basket_Container">
@@ -49,7 +49,11 @@ const GuestContainer = ({ index, focusing, guest, basket, handleAdding, handlePa
         {payments.includes(index) ? (
           <div className="paid">
             <h1>cheers!</h1>
-            <p>pay other orders to get beers</p>
+            {filled.length === payments.length ? (
+              <p>{`you can place an order now${payments.length === 4 ? "." : ` or ${4 - filled.length} more guest${filled.length > 1 ? "s" : ""} can add beers`}`}</p>
+            ) : (
+              <p>{`Guest ${missing} need to pay before placing an order`}</p>
+            )}
           </div>
         ) : (
           <Form handlePayment={handlePayment} index={index} />

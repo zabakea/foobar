@@ -18,6 +18,7 @@
   -webkit-text-stroke: 1.5px var(--accent-color);
   letter-spacing: 3px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .Plus:active,
@@ -47,9 +48,9 @@
 }
 
 /* Do an vertical flip when you move the mouse over the flip box container */
-.Order:hover .Inner_Order {
-  transform: rotateX(180deg);
-}
+// .Order:hover .Inner_Order {
+//   transform: rotateX(180deg);
+// }
 
 /* Position the front and back side */
 .PlaceOrder,

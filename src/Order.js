@@ -1,13 +1,15 @@
 import PlaceOrder from "./PlaceOrder";
-import Queue from "./Queue";
+// import Queue from "./Queue";
 
-export default function Order() {
+const Order = ({ handlePosting }) => {
   return (
     <div className="Order">
       <div className="Inner_Order">
-        <PlaceOrder />
-        <Queue />
+        <PlaceOrder handlePosting={handlePosting} />
+        {/* <Queue /> */}
       </div>
     </div>
   );
-}
+};
+
+export default Order;
