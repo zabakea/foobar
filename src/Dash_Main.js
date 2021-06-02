@@ -5,11 +5,8 @@ import TileQueue from "./TileQueue";
 import TileServing from "./TileServing";
 import TileBartenders from "./TileBartenders";
 import ChartsManager from "./ChartsManager";
-<<<<<<< HEAD
 import ManagerRevenue from "./ManagerRevenue";
-=======
 import CircleLoader from "react-spinners/CircleLoader";
->>>>>>> 190770d60c8c394dc6503ceefb9f601ac9b30991
 // import { useState } from "react";
 
 const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle }) => {
