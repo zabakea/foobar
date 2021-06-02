@@ -11,9 +11,13 @@ import CircleLoader from "react-spinners/CircleLoader";
 
 const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle }) => {
   if (data.length !== 0) {
-    const mapQueue = data.queue.map((single) => {
+    const mapQueue = data.queue.slice(0, 5).map((single) => {
+      // if (data.queue.length <= 5) {
       return <TileQueue key={single.id} id={single.id} order={single.order} />;
+      // }
     });
+
+    // console.log(data.queue.length);
 
     const mapServing = data.serving.map((single) => {
       const mapServer = data.bartenders.map((barnames) => {
@@ -38,7 +42,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
         <div className="Dashboard_Content">
           <Charts serving={data.serving} />
           <div className="Waiting_Customers">
-            <p>Customers in queue:</p>
+            <p>Customers in a queue:</p>
             {mapQueue}
           </div>
           <div className="Bartenders">{mapServing}</div>

@@ -15,7 +15,7 @@ const TileBartenders = ({ name, status, detail, tap }) => {
 
   return (
     <div className="Tile_Bartenders">
-      <h2>{name}</h2>
+      <h2>{name} </h2>
       <p>
         is currently {status}.</p>
       <p>He is {detail}

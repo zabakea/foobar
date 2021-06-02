@@ -17,6 +17,18 @@ const DashFooter = ({ display, data }) => {
       }
     }
 
+    const storage = data.storage.map((oneBeer) => {
+      return oneBeer
+    });
+    function displayStorage(string) {
+      let found = storage.find((name) => name.name === string);
+      if (found) {
+        return found.amount
+      } else {
+        return 0;
+      }
+    }
+
     return (
       <div className="Dash_Footer">
         <div className={`Image_Box`}>
@@ -24,7 +36,8 @@ const DashFooter = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>El Hefe</p>
-              {displayStock("El Hefe")}
+              <p>Keg level:{displayStock("El Hefe")}</p>
+              <p>{displayStorage("El Hefe")} kegs left</p>
             </div>
           ) : (
             ""
@@ -35,7 +48,8 @@ const DashFooter = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Fairy Tale Ale</p>
-              {displayStock("Fairy Tale Ale")}
+              <p>Keg level:{displayStock("Fairy Tale Ale")}</p>
+              <p>{displayStorage("Fairy Tale Ale")} kegs left</p>
             </div>
           ) : (
             ""
@@ -46,7 +60,8 @@ const DashFooter = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>GitHop</p>
-              {displayStock("GitHop")}
+              <p>Keg level:{displayStock("GitHop")}</p>
+              <p>{displayStorage("GitHop")} kegs left</p>
             </div>
           ) : (
             ""
@@ -57,7 +72,8 @@ const DashFooter = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Hollaback Lager</p>
-              {displayStock("Hollaback Lager")}
+              <p>Keg level:{displayStock("Hollaback Lager")}</p>
+              <p>{displayStorage("Hollaback Lager")} kegs left</p>
             </div>
           ) : (
             ""
@@ -68,7 +84,8 @@ const DashFooter = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Hoppily Ever After</p>
-              {displayStock("Hoppily Ever After")}
+              <p>Keg level:{displayStock("Hoppily Ever After")}</p>
+              <p>{displayStorage("Hoppily Ever After")} kegs left</p>
             </div>
           ) : (
             ""

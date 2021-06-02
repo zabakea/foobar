@@ -8,15 +8,7 @@ const TileQueue = ({ id, order }) => {
   orders.forEach(function (x) {
     counts[x] = (counts[x] || 0) + 1;
   });
-  // console.log(counts);
 
-  Object.entries(counts).forEach(([key, value]) => {
-    console.log(`${key} ${value}`);
-  });
-
-  // var counts = {};
-  // orders.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
-  // console.log(counts);
 
   return (
     <div className="Tile_Queue">
@@ -24,7 +16,7 @@ const TileQueue = ({ id, order }) => {
         <b>Order no. {id}</b>
       </p>
       {Object.entries(counts).map(([key, value], index) => {
-        return <p key={index}>{`${value} ${key} `}</p>;
+        return <p className="QueueList" key={index}>{`${value} ${key} `}</p>;
       })}
     </div>
   );

@@ -16,7 +16,17 @@ const DashHeader = ({ display, data }) => {
         return "finished!";
       }
     };
-
+    const storage = data.storage.map((oneBeer) => {
+      return oneBeer
+    });
+    function displayStorage(string) {
+      let found = storage.find((name) => name.name === string);
+      if (found) {
+        return found.amount
+      } else {
+        return 0;
+      }
+    }
 
 
     return (
@@ -26,7 +36,8 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Mowintime</p>
-              {displayStock("Mowintime")}
+              <p>Keg level:{displayStock("Mowintime")}</p>
+              <p>{displayStorage("Mowintime")} kegs left</p>
             </div>
           ) : (
             ""
@@ -37,7 +48,8 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Row 26</p>
-              Keg level:{displayStock("Row 26")}
+              <p>Keg level:{displayStock("Row 26")}</p>
+              <p>{displayStorage("Row 26")} kegs left</p>
             </div>
           ) : (
             ""
@@ -48,7 +60,8 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Ruined Childhood</p>
-              {displayStock("Ruined Childhood")}
+              <p>Keg level:{displayStock("Ruined Childhood")}</p>
+              <p>{displayStorage("Ruined Childhood")} kegs left</p>
             </div>
           ) : (
             ""
@@ -59,7 +72,8 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Sleighride</p>
-              {displayStock("Sleighride")}
+              <p>Keg level:{displayStock("Sleighride")}</p>
+              <p>{displayStorage("Sleighride")} kegs left</p>
             </div>
           ) : (
             ""
@@ -68,9 +82,10 @@ const DashHeader = ({ display, data }) => {
         <div className={`Image_Box`}>
           <img className={`${display ? "Stock" : ""} ${displayStock("Steampunk") === "finished!" ? `Unavail` : ""}`} src={Images[Object.keys(Images)[9]]} alt="" />
           {display ? (
-            <div className={`Stock_Text`}>
+            <div className="Stock_Text">
               <p>Steampunk</p>
-              {displayStock("Steampunk")}
+              <p>Keg level:{displayStock("Steampunk")}</p>
+              <p>{displayStorage("Steampunk")} kegs left</p>
             </div>
           ) : (
             ""
