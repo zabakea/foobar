@@ -24,7 +24,7 @@ const TileQueue = ({ id, order }) => {
         <b>Order no. {id}</b>
       </p>
       {Object.entries(counts).map(([key, value], index) => {
-        return <p key={index}>{`${key} ${value}`}</p>;
+        return <p key={index}>{`${value} ${key} `}</p>;
       })}
     </div>
   );
