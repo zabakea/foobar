@@ -2,8 +2,7 @@ import Order from "../Order";
 import BeerPreview from "../BeerPreview";
 import BeerList from "../BeerList";
 import Guests from "../Guests";
-// import ThemeToggle from "../ThemeToggle";
-// import "../sass/main.scss";
+import LiveChat from "../LiveChat";
 import { useEffect, useState } from "react";
 import React from "react";
 
@@ -17,7 +16,15 @@ const Tablet = () => {
   const [form, setForm] = useState(null);
   const [baskets, setBaskets] = useState([[], [], [], []]);
   const [payments, setPayments] = useState([]);
+  const [orders, setOrders] = useState([]);
   let beerPrice = prices.find((el) => el.name === beers[focus].beer);
+  let filled = baskets.filter((el) => el.length > 0).map((el) => baskets.indexOf(el) + 1);
+  let missing = filled.filter((el) => !payments.includes(el));
+  useEffect(() => {
+    if (baskets[guest - 1].length === 0) {
+      setForm(null);
+    }
+  }, [baskets, guest]);
   const handleAdding = (e) => {
     if (payments.includes(Number(guest))) {
       return;
@@ -90,6 +97,47 @@ const Tablet = () => {
       }
     });
   };
+
+  const handlePosting = () => {
+    if (!missing.length > 0) {
+      let order = [];
+      baskets.forEach((basket) => {
+        if (basket.length > 0) {
+          basket.forEach((el) => {
+            order.push({
+              name: el.name,
+              amount: el.amount,
+            });
+          });
+        } else {
+          return;
+        }
+      });
+      // console.log(order);
+      const postData = JSON.stringify(order);
+      fetch("http://pivobar.herokuapp.com/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          // "cache-control": "no-cache",
+        },
+        body: postData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setBaskets([[], [], [], []]);
+          setGuest(1);
+          setPayments([]);
+          setForm(null);
+          setOrders((prev) => [...prev, data.id]);
+          console.log(data);
+        });
+    } else {
+      console.log("sth not payed");
+      return;
+    }
+  };
+
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
@@ -111,12 +159,6 @@ const Tablet = () => {
       abortController.abort();
     };
   }, []);
-
-  //         });
-  //     return function cleaup() {
-  //         abortController.abort();
-  //     };
-  // }, []);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -152,10 +194,6 @@ const Tablet = () => {
       abortController.abort();
     };
   }, []);
-
-  // console.log(prices);
-  // console.log(types);
-
   return (
     <div className={`Grid_Container ${theme ? "Dark_Theme" : "Light_Theme"}`}>
       <div className="Position_Grid" />
@@ -185,6 +223,7 @@ const Tablet = () => {
         handleAdding={handleAdding}
         handlePayment={handlePayment}
         payments={payments}
+        filled={filled}
       />
       <div className="Main_Content">
         <BeerList
@@ -203,12 +242,11 @@ const Tablet = () => {
             themeToggle(!theme);
           }}
         ></button>
-        <Order />
+        <Order handlePosting={handlePosting} orders={orders} missing={missing} filled={filled} payments={payments} />
+        <LiveChat />
       </div>
     </div>
   );
 };
 
 export default Tablet;
-
-//chnages for github
