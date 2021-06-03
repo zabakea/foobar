@@ -35,7 +35,7 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Mowintime</p>
-              <p>Keg level:{displayStock("Mowintime")}</p>
+              <p>Keg level: {displayStock("Mowintime")}</p>
               <p>{displayStorage("Mowintime")} kegs left</p>
             </div>
           ) : (
@@ -47,7 +47,7 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Row 26</p>
-              <p>Keg level:{displayStock("Row 26")}</p>
+              <p>Keg level: {displayStock("Row 26")}</p>
               <p>{displayStorage("Row 26")} kegs left</p>
             </div>
           ) : (
@@ -59,7 +59,7 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Ruined Childhood</p>
-              <p>Keg level:{displayStock("Ruined Childhood")}</p>
+              <p>Keg level: {displayStock("Ruined Childhood")}</p>
               <p>{displayStorage("Ruined Childhood")} kegs left</p>
             </div>
           ) : (
@@ -71,7 +71,7 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Sleighride</p>
-              <p>Keg level:{displayStock("Sleighride")}</p>
+              <p>Keg level: {displayStock("Sleighride")}</p>
               <p>{displayStorage("Sleighride")} kegs left</p>
             </div>
           ) : (
@@ -83,7 +83,7 @@ const DashHeader = ({ display, data }) => {
           {display ? (
             <div className="Stock_Text">
               <p>Steampunk</p>
-              <p>Keg level:{displayStock("Steampunk")}</p>
+              <p>Keg level: {displayStock("Steampunk")}</p>
               <p>{displayStorage("Steampunk")} kegs left</p>
             </div>
           ) : (

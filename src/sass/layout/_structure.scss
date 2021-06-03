@@ -303,21 +303,15 @@ html {
     }
     .Stock_Text {
       bottom: 0.5em;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: flex-end;
 
-      p:nth-child(1) {
+      p {
         padding: 0;
-        position: absolute;
-        bottom: 40px;
-      }
-      p:nth-child(2) {
-        bottom: 20px;
-        padding: 0;
-        position: absolute;
-      }
-      p:nth-child(3) {
-        padding: 0;
-        position: absolute;
-        bottom: 0;
       }
     }
   }
@@ -373,7 +367,7 @@ html {
   .Image_Box {
     flex-grow: 1;
     flex-basis: 0;
-    max-width: 12%;
+    max-width: 14%;
 
     img {
       width: 100%;
@@ -387,7 +381,7 @@ html {
 
 .Dashboard_Content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 5em;
   padding-left: 5em;
   column-gap: 1em;

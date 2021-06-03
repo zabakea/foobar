@@ -11,17 +11,19 @@ const TileBartenders = ({ name, status, detail, tap }) => {
     detail = "finishing to pour beer";
   } else if (detail === "startServing") {
     detail = "started serving";
+  } else if (detail === "changeKeg") {
+    detail = "changing the keg";
   }
 
   return (
     <div className="Tile_Bartenders">
       <h2>{name} </h2>
+      <p>is currently {status}.</p>
       <p>
-        is currently {status}.</p>
-      <p>He is {detail}
+        He is {detail}
         {tap === null ? ".." : " from the tap "}
-        {tap}.</p>
-
+        {tap}.
+      </p>
     </div>
   );
 };
