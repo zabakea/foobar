@@ -8,15 +8,15 @@ const LiveChat = () => {
         </div>
         <div className="mes">
           <p>table 2: </p>
-          <p>fuck you ,|,,</p>
+          <p>,|,,</p>
         </div>
         <div className="mes">
           <p>table 5: </p>
-          <p>have you seen a girl with glasses?</p>
+          <p>has anyone seen a girl with eyeglasses?</p>
         </div>
         <div className="mes">
           <p>table 3: </p>
-          <p>drugs sb?</p>
+          <p>I dont sell drugs</p>
         </div>
       </div>
       <div className="userInput">

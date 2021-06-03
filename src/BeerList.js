@@ -1,9 +1,15 @@
-import BeerListUL from "./BeerListUL";
-
 export default function BeerList({ beers, clickHandler, focus }) {
   return (
     <div className="Beer_List">
-      <BeerListUL beers={beers} clickHandler={clickHandler} focus={focus} />
+      <ul>
+        {beers.map((beer, index) => {
+          return (
+            <li key={beer.id} className={index === focus ? "focus" : ""} onClick={clickHandler}>
+              {beer.beer}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
