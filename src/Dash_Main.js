@@ -20,7 +20,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
     // console.log(data.queue.length);
 
     const mapServing = data.serving.map((single) => {
-      // eslint-disable-next-line 
+      // eslint-disable-next-line
       const mapServer = data.bartenders.map((barnames) => {
         if (Object.values(barnames).includes(single.id)) {
           return barnames.name;
@@ -40,8 +40,6 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
           Managers Panel
         </button>
 
-
-
         <div className="Dashboard_Content">
           <Charts serving={data.serving} />
           <div className="Waiting_Customers">
@@ -51,8 +49,6 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
           <div className="Bartenders">{mapServing}</div>
           <Counter count={data.serving[0] === undefined ? 0 : data.serving[0].order.length} />
         </div>
-
-
 
         <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
           <ChartsManager taps={data.taps} prices={prices} />
