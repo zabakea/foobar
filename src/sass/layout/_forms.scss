@@ -87,7 +87,7 @@ input {
     margin-top: 1rem;
   }
 }
-#or {
+.or {
   position: relative;
   margin-top: 1rem;
   &::after {
@@ -125,7 +125,8 @@ input {
 
 .Error_Cardnumber,
 .Error_Date,
-.Error_CVC {
+.Error_CVC,
+.Error_Name {
   position: absolute;
   left: 0;
   width: 100%;
@@ -140,9 +141,10 @@ input {
 
 //Displaying error messages
 
-#cardnumber:not(:focus):not(:placeholder-shown):invalid ~ .Error_Cardnumber,
-#expyear:not(:focus):not(:placeholder-shown):invalid ~ .Error_Date,
-#cvc:not(:focus):not(:placeholder-shown):invalid ~ .Error_CVC {
+.cardnumber:not(:focus):invalid ~ .Error_Cardnumber,
+.expdate:not(:focus):invalid ~ .Error_Date,
+.cvc:not(:focus):invalid ~ .Error_CVC,
+.name:not(:focus):invalid ~ .Error_Name {
   display: inline;
   border-color: 1px solid var(--invalid-accent-color);
 }
