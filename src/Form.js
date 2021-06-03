@@ -1,4 +1,4 @@
-import { useState, setState } from "react";
+// import { useState, setState } from "react";
 
 const Form = ({ handlePayment, index }) => {
   function insertSpaces(e) {
