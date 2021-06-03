@@ -1,4 +1,4 @@
-// import { setState } from "react";
+import { useState, setState } from "react";
 
 const Form = ({ handlePayment, index }) => {
   function insertSpaces(e) {
@@ -19,13 +19,28 @@ const Form = ({ handlePayment, index }) => {
     handlePayment(index);
   }
 
+  //form validation
+
+  // const [form, setForm] = useState({
+  //   card: '',
+  // });
+
+  // function validateForm() {
+  //   console.log(validCardNumber);
+  // }
+  // function handleChange((e) => {
+  //   setForm({
+  //     [e.target.name]: e.target.value,
+  //   })
+  // });
+
   return (
     <>
       <form>
         <div className="Field">
           <label htmlFor="cardnumber">card number</label>
           <input type="text" id="cardnumber" title="cardname" minLength="19" maxLength="19" placeholder="1234 1234 1234 1234" onChange={insertSpaces}></input>
-          <span className="Error_Cardnumber">must be 16 digits</span>
+          <span className="Error_Cardnumber">enter 16 digit</span>
         </div>
         <div className="Field">
           <label htmlFor="name">owner</label>
@@ -35,13 +50,13 @@ const Form = ({ handlePayment, index }) => {
           <div className="Field">
             <label htmlFor="expdate">exp date</label>
             <input type="text" id="expmonth" title="expdate" maxLength="5" placeholder="MM/YY" onChange={insertSlash}></input>
-            <span className="Error_Date">card has expired</span>
+            <span className="Error_Date">enter 4 digits</span>
           </div>
 
           <div className="Field">
             <label htmlFor="cvc">cvc</label>
             <input type="text" id="cvc" title="cvc" placeholder="123" minLength="3" maxLength="3"></input>
-            <span className="Error_CVC">input 3 digits</span>
+            <span className="Error_CVC">enter 3 digits</span>
           </div>
           <button className="method Card_Pay" onClick={paying}>
             pay

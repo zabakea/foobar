@@ -302,7 +302,7 @@ html {
       animation: slidedown 0.5s forwards;
     }
     .Stock_Text {
-      bottom: 0.5em;
+      bottom: 0.3em;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -381,7 +381,7 @@ html {
 
 .Dashboard_Content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: 0 5em;
   padding-left: 5em;
   column-gap: 1em;
