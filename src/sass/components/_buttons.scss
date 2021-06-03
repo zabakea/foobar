@@ -119,18 +119,20 @@
   font-family: $body-font;
   position: relative;
 }
-.Card_Pay::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 150%;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 65%;
-  background-image: url("../assets/card.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.Card_Pay {
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 65%;
+    background-image: url("../assets/card.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 .MobilePay {
