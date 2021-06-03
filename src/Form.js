@@ -10,21 +10,6 @@ export function post(e) {
   ];
 
   console.log("Post" + data);
-
-  // const postData = JSON.stringify(data);
-
-  //below posting function - don't know the address and x-apikey
-  //   fetch("", {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //       "x-apikey": "",
-  //       "cache-control": "no-cache",
-  //     },
-  //     body: postData,
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
 }
 
 const Form = ({ handlePayment, index }) => {
