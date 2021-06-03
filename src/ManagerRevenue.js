@@ -5,28 +5,17 @@ import React from "react";
 
 const ManagerRevenue = ({ taps, prices }) => {
 
-
-
     const mapLevels = taps.map((level) => {
-
-        const mapPrices = prices.map((price) => {
-            if (level.beer === price.name) {
-                const beersSold = (2500 - level.level) / 50;
-                console.log(beersSold);
-                // var mergedOrders = [].concat.apply([], mapOrders);
-                return beersSold;
-            }
-        });
-        return mapPrices;
+        const mapPrices = prices.find((price) => level.beer === price.name);
+        return ((2500 - level.level) / 50) * mapPrices.price;
     });
-    console.log(mapLevels);
-
+    const total = mapLevels.reduce((a, b) => a + b, 0);
 
 
     return (
         <div className="Manager_Revenue">
-            <p>Served right now</p>
-
+            <p>Today`s revenue is</p>
+            <h2>{total} DKK</h2>
         </div>
     );
 };

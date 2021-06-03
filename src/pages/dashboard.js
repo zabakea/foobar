@@ -85,7 +85,7 @@ const Dashboard = () => {
         prices={prices}
         displayToggle={() => {
           displayToggle(!display);
-          console.log(display);
+          // console.log(display);
         }}
       />
       <DashFooter display={display} data={queue} />

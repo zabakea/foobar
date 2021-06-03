@@ -5,26 +5,34 @@ import { Bar } from 'react-chartjs-2';
 
 
 
-const ChartsManager = ({ serving }) => {
-    //mapping through servings
-    const mapOrders = serving.map((singleOrder) => singleOrder.order);
-    var mergedOrders = [].concat.apply([], mapOrders);
+const ChartsManager = ({ taps, prices }) => {
 
-    // counting duplicate entries
-    var counts = {};
-    mergedOrders.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+    const singleName = [];
+
+    const mapLevels = taps.map((level) => {
+
+        const mapPrices = prices.find((price) => level.beer === price.name);
+
+        singleName.push(level.beer);
+
+        return ((2500 - level.level) / 50) * mapPrices.price;
+
+    });
+    console.log(mapLevels);
+    console.log(singleName);
+
 
 
 
     const state = {
-        labels: Object.keys(counts),
+        labels: singleName,
         datasets: [
             {
                 label: "Beers",
                 backgroundColor: ["rgba(187, 152, 239, 0.4)", "rgba(193, 174, 159, 0.4)", "rgba(137, 147, 124, 0.4)", "rgba(113, 91, 100, 0.4)", "rgba(105, 56, 92, 0.4)", "rgba(255, 166, 134, 0.4)", "rgba(0, 166, 166, 0.4"],
                 hoverBackgroundColor: ["rgba(187, 152, 239)", "rgba(193, 174, 159)", "rgba(137, 147, 124)", "rgba(113, 91, 100)", "rgba(105, 56, 92)"],
                 borderColor: "#bb98ef",
-                data: Object.values(counts),
+                data: mapLevels,
             },
         ],
     };
@@ -34,7 +42,7 @@ const ChartsManager = ({ serving }) => {
 
     return (
         <div className="Charts">
-            <p>Served right now</p>
+            <p>Revenue per beer</p>
             <Bar
                 className="Pie"
                 data={state}

@@ -55,7 +55,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
 
 
         <div className={`Manager_Content ${display ? "" : "Display_None"}`}>
-          <ChartsManager serving={data.serving} />
+          <ChartsManager taps={data.taps} prices={prices} />
           <div className="Manager_Workers">{mapWorkers}</div>
           <ManagerRevenue taps={data.taps} prices={prices} />
           <ThemeToggle Click={themeToggler} theme={theme} />
