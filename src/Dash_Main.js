@@ -20,6 +20,7 @@ const DashMain = ({ themeToggler, theme, data, beerTypes, display, displayToggle
     // console.log(data.queue.length);
 
     const mapServing = data.serving.map((single) => {
+      // eslint-disable-next-line 
       const mapServer = data.bartenders.map((barnames) => {
         if (Object.values(barnames).includes(single.id)) {
           return barnames.name;

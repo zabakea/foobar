@@ -2,7 +2,7 @@ import Order from "../Order";
 import BeerPreview from "../BeerPreview";
 import BeerList from "../BeerList";
 import Guests from "../Guests";
-import ThemeToggle from "../ThemeToggle";
+// import ThemeToggle from "../ThemeToggle";
 // import "../sass/main.scss";
 import { useEffect, useState } from "react";
 import React from "react";
