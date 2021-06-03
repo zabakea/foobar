@@ -11,7 +11,6 @@ const BeerPreview = ({ beers, prices, details, focus, onClick }) => {
   let beerDet = details.find((el) => el.name === focusedBeer.beer);
   let beerPrice = prices.find((el) => el.name === focusedBeer.beer);
   let imgName = beerDet.name.toLowerCase().replace(/ /g, "");
-  // console.log(beerPrice);
 
   return (
     <div className="Beer_Preview">
@@ -42,7 +41,7 @@ const BeerPreview = ({ beers, prices, details, focus, onClick }) => {
           </p>
           <p className="Flavor">
             <b>Flavor: </b>
-            <span className="Flavor_API">{beerDet.description.flavour}</span>
+            <span className="Flavor_API">{beerDet.description.flavor}</span>
           </p>
           <p className="Mouthfeel">
             <b>Mouthfeel: </b>
