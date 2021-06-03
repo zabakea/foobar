@@ -1,20 +1,5 @@
 // import { setState } from "react";
 
-<<<<<<< HEAD
-export function post(e) {
-  e.preventDefault();
-
-  //this function should post data to database
-  const data = [
-    { name: "Hoppily Ever After", amount: 1 },
-    { name: "Row 26", amount: 2 },
-  ];
-
-  console.log("Post" + data);
-}
-
-=======
->>>>>>> f14e4df9c3f8806590cb74579c56ce6953ecd428
 const Form = ({ handlePayment, index }) => {
   function insertSpaces(e) {
     e.target.value = e.target.value
