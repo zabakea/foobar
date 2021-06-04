@@ -115,7 +115,7 @@ const Tablet = () => {
       });
       // console.log(order);
       const postData = JSON.stringify(order);
-      fetch("http://pivobar.herokuapp.com/order", {
+      fetch("https://pivobar.herokuapp.com/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8",
