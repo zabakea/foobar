@@ -243,7 +243,7 @@ const Tablet = () => {
           }}
         ></button>
         <Order handlePosting={handlePosting} orders={orders} missing={missing} filled={filled} payments={payments} />
-        <LiveChat />
+        {/* <LiveChat /> */}
       </div>
     </div>
   );
