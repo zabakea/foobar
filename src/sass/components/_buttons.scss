@@ -118,6 +118,9 @@
   border: none;
   font-family: $body-font;
   position: relative;
+  &:hover{
+    cursor: pointer;
+  }
 }
 .Card_Pay {
   &::after {
@@ -138,9 +141,6 @@
 .MobilePay {
   background-color: #5a78fe;
   color: white;
-  &:hover{
-    cursor: pointer;
-  }
 }
 
 //Theme toggle button
