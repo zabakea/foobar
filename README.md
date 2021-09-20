@@ -1,4 +1,4 @@
-React.js project for and imaginary bar, consisting of two parts:
+React.js project for and imaginary bar, consisting of two parts :
 1. Ordering app: https://elegant-kare-91b689.netlify.app/
 2. Dashboard with order status + managers panel: https://elegant-kare-91b689.netlify.app/dashboard
 
