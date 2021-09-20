@@ -1,3 +1,9 @@
+React.js project for and imaginary bar, consisting of two parts:
+1. Ordering app: https://elegant-kare-91b689.netlify.app/
+2. Dashboard with order status + managers panel: https://elegant-kare-91b689.netlify.app/dashboard
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
